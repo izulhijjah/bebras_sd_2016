@@ -1344,6 +1344,10 @@
     let isQuizStarting = false;
     let isWheelSpinning = false;
     let wheelRotation = 0;
+    let selectedQuestionOrder = [];
+    let quizQuestionOrder = QUESTIONS.map(function (_, index) {
+      return index;
+    });
 
     function cloneState(obj) {
       return JSON.parse(JSON.stringify(obj));
@@ -1421,7 +1425,7 @@
         const labelY = center + labelRadius * Math.sin(labelRadians);
 
         slices += `
-          <path d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z"
+          <path id="wheel-slice-${i}" d="M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 0 1 ${x2} ${y2} Z"
             fill="${colors[i % colors.length]}" stroke="#ffffff" stroke-width="3"></path>
           <text x="${labelX}" y="${labelY}" fill="#ffffff" font-size="18" font-weight="800"
             text-anchor="middle" dominant-baseline="central">Q${i + 1}</text>
@@ -1456,7 +1460,7 @@
         setTimeout(resolve, 900);
       });
 
-      heading.textContent = `Putar roda untuk memilih soal!`;
+      heading.textContent = `Putar roda untuk memilih semua soal!`;
       countdown.classList.add(`hidden`);
       const wheelArea = document.getElementById(`start-wheel-area`);
       const wheel = document.getElementById(`question-wheel`);
@@ -1475,10 +1479,35 @@
       const result = document.getElementById(`question-wheel-result`);
       if (!wheel || !spinButton || !result) return;
 
+      if (selectedQuestionOrder.length === QUESTIONS.length) {
+        quizQuestionOrder = selectedQuestionOrder.slice();
+        appState.currentIdx = quizQuestionOrder[0];
+        appState.showSummary = false;
+        renderAll();
+        document.getElementById(`start-screen`).classList.add(`hidden`);
+        const quizPage = document.getElementById(`quiz-page`);
+        quizPage.removeAttribute(`inert`);
+        isQuizStarting = false;
+        persistState();
+
+        const workspace = document.getElementById(`quiz-workspace`);
+        if (workspace) {
+          workspace.setAttribute(`tabindex`, `-1`);
+          workspace.focus();
+        }
+        return;
+      }
+
       isWheelSpinning = true;
       spinButton.disabled = true;
-      result.textContent = `Roda sedang berputar...`;
-      const selectedIndex = Math.floor(Math.random() * QUESTIONS.length);
+      result.textContent = `Roda sedang berputar... (${selectedQuestionOrder.length + 1}/${QUESTIONS.length})`;
+      const selectedSet = new Set(selectedQuestionOrder);
+      const availableQuestions = QUESTIONS.map(function (_, index) {
+        return index;
+      }).filter(function (index) {
+        return !selectedSet.has(index);
+      });
+      const selectedIndex = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
       const sliceAngle = 360 / QUESTIONS.length;
       const targetRotation = (360 - selectedIndex * sliceAngle) % 360;
       const currentRotation = wheelRotation % 360;
@@ -1491,25 +1520,18 @@
         setTimeout(resolve, reducedMotion ? 50 : 4600);
       });
 
-      appState.currentIdx = selectedIndex;
-      appState.showSummary = false;
-      appState.q3InspectCell = null;
-      appState.q6SimStep = 0;
-      appState.q7AnimStep = 0;
-      renderAll();
-      result.textContent = `Soal ${selectedIndex + 1} terpilih!`;
-      document.getElementById(`start-screen`).classList.add(`hidden`);
-      const quizPage = document.getElementById(`quiz-page`);
-      quizPage.removeAttribute(`inert`);
-      isQuizStarting = false;
+      selectedQuestionOrder.push(selectedIndex);
+      const selectedSlice = document.getElementById(`wheel-slice-${selectedIndex}`);
+      if (selectedSlice) selectedSlice.setAttribute(`fill`, `#806f7b`);
+      const remainingCount = QUESTIONS.length - selectedQuestionOrder.length;
+      result.textContent = remainingCount > 0
+        ? `Soal ${selectedIndex + 1} terpilih. Pilih ${remainingCount} soal lagi.`
+        : `Semua soal terpilih! Putarannya menentukan urutan kuis.`;
+      const heading = document.getElementById(`start-heading`);
+      if (heading && remainingCount === 0) heading.textContent = `Semua soal sudah terpilih!`;
+      spinButton.textContent = remainingCount > 0 ? `Putar Roda (${selectedQuestionOrder.length}/${QUESTIONS.length})` : `Mulai Kuis`;
+      spinButton.disabled = false;
       isWheelSpinning = false;
-      persistState();
-
-      const workspace = document.getElementById(`quiz-workspace`);
-      if (workspace) {
-        workspace.setAttribute(`tabindex`, `-1`);
-        workspace.focus();
-      }
     }
 
     // =========================================================================
@@ -1588,6 +1610,7 @@
       const keepMode = appState.mode;
       appState = cloneState(DEFAULT_STATE);
       appState.mode = keepMode;
+      appState.currentIdx = quizQuestionOrder[0];
       renderAll();
       persistState();
     }
@@ -2444,15 +2467,16 @@
       if (pillsEl) {
         let html = ``;
         for (let i = 0; i < QUESTIONS.length; i++) {
-          const q = QUESTIONS[i];
+          const questionIndex = quizQuestionOrder[i];
+          const q = QUESTIONS[questionIndex];
           const chosen = appState.answers[String(q.id)];
           const revealed = isQuestionRevealed(q.id);
           let cls = `q-pill`;
-          if (i === appState.currentIdx && !appState.showSummary) cls += ` is-active`;
+          if (questionIndex === appState.currentIdx && !appState.showSummary) cls += ` is-active`;
           else if (revealed && chosen) cls += chosen === q.correct ? ` is-correct` : ` is-wrong`;
           else if (chosen) cls += ` is-answered`;
 
-          html += `<button type="button" class="${cls}" onclick="goToQuestion(${i})" aria-label="Soal ${q.id}: ${q.title}">${q.id}</button>`;
+          html += `<button type="button" class="${cls}" onclick="goToQuestion(${questionIndex})" aria-label="Soal ${q.id}: ${q.title}">${q.id}</button>`;
         }
         pillsEl.innerHTML = html;
       }
@@ -2526,9 +2550,10 @@
         `;
       }
 
-      const prevDisabled = appState.currentIdx === 0 ? `disabled` : ``;
-      const nextBtn = appState.currentIdx < QUESTIONS.length - 1
-        ? `<button type="button" class="btn btn-primary" onclick="goToQuestion(${appState.currentIdx + 1})">Soal Berikutnya →</button>`
+      const currentPosition = quizQuestionOrder.indexOf(appState.currentIdx);
+      const prevDisabled = currentPosition === 0 ? `disabled` : ``;
+      const nextBtn = currentPosition < QUESTIONS.length - 1
+        ? `<button type="button" class="btn btn-primary" onclick="goToQuestion(${quizQuestionOrder[currentPosition + 1]})">Soal Berikutnya →</button>`
         : `<button type="button" class="btn btn-primary" onclick="${appState.mode === `exam` && !appState.examSubmitted ? `submitExam()` : `toggleSummaryView()`}">Lihat Rapor Akhir →</button>`;
 
       container.innerHTML = `
@@ -2557,7 +2582,7 @@
           </div>
           ${feedbackHtml}
           <div class="nav-actions">
-            <button type="button" class="btn btn-soft" onclick="goToQuestion(${appState.currentIdx - 1})" ${prevDisabled}>← Sebelumnya</button>
+            <button type="button" class="btn btn-soft" onclick="goToQuestion(${quizQuestionOrder[currentPosition - 1]})" ${prevDisabled}>← Sebelumnya</button>
             ${nextBtn}
           </div>
         </aside>
@@ -2618,7 +2643,8 @@
 
       let reviewHtml = ``;
       for (let i = 0; i < QUESTIONS.length; i++) {
-        const q = QUESTIONS[i];
+        const questionIndex = quizQuestionOrder[i];
+        const q = QUESTIONS[questionIndex];
         const ans = appState.answers[String(q.id)];
         let chip = `<span class="status-chip wait">Belum</span>`;
         if (canShowAnswers && ans) {
@@ -2629,7 +2655,7 @@
           chip = `<span class="status-chip wait">Terisi (${ans})</span>`;
         }
         reviewHtml += `
-          <button type="button" class="review-item" onclick="goToQuestion(${i})">
+          <button type="button" class="review-item" onclick="goToQuestion(${questionIndex})">
             <span><strong>${q.id}. ${q.title}</strong></span>
             ${chip}
           </button>
