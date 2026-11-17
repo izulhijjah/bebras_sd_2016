@@ -1,0 +1,2525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="sticker">
+  <title>Kuis Tantangan Bebras Indonesia 2016 — Kelompok Siaga (SD/MI)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Sticker) */
+      --background: #fef7ff;
+      --surface-container-low: #ffffff;
+      --surface-container: #f8eef8;
+      --surface-container-high: #f2e8f2;
+
+      /* Ink */
+      --on-surface: #2e1a28;
+      --on-surface-variant: #604868;
+
+      /* Rules */
+      --outline: #907898;
+      --outline-variant: #dcc8e0;
+
+      /* Accents */
+      --primary: #c2207f;
+      --on-primary: #ffffff;
+      --primary-container: #f080c0;
+      --on-primary-container: #2e1a28;
+      --secondary: #7c52aa;
+      --on-secondary: #ffffff;
+      --secondary-container: #ece0fb;
+      --tertiary: #0096cc;
+      --tertiary-container: #dff5fd;
+      --error: #c53030;
+      --on-error: #ffffff;
+      --error-bg: #fdecec;
+
+      /* Semantic */
+      --positive: #137a4b;
+      --positive-bg: #e7f8ef;
+      --warning: #b45309;
+      --warning-bg: #fff6e0;
+      --focus: #c2207f;
+
+      /* Data series */
+      --data-1: #c2207f;
+      --data-2: #7c52aa;
+      --data-3: #0096cc;
+      --data-4: #d96a00;
+      --data-context: #c8b8d0;
+
+      /* Illustration tokens */
+      --illus-pink: #f472b6;
+      --illus-pink-deep: #c2207f;
+      --illus-grape: #7c52aa;
+      --illus-sky: #0096cc;
+      --illus-sky-soft: #bae6fd;
+      --illus-amber: #f59e0b;
+      --illus-amber-soft: #fef3c7;
+      --illus-emerald: #10b981;
+      --illus-emerald-soft: #d1fae5;
+      --illus-coral: #ef4444;
+      --illus-coral-soft: #fee2e2;
+      --illus-cream: #fffaf0;
+      --illus-wood: #d9a066;
+      --illus-wood-dark: #8c5a2b;
+      --illus-wall: #4a3548;
+      --illus-track: #e9d8ec;
+
+      /* Fonts */
+      --font-headline: 'DM Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-label: 'DM Sans', sans-serif;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.85rem, 1.4rem + 1.4vw, 2.5rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.2rem);
+      --body-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Shape */
+      --rounded: 1rem;
+      --rounded-lg: 2rem;
+      --rounded-full: 9999px;
+
+      /* Style effects */
+      --shadow-pink: 0 4px 16px rgb(224 64 160 / 0.2);
+      --shadow-pink-deep: 0 10px 28px rgb(224 64 160 / 0.32);
+      --shadow-grape: 0 4px 16px rgb(124 82 170 / 0.2);
+      --shadow-sky: 0 4px 16px rgb(0 150 204 / 0.2);
+      --pop-scale: scale(1.03);
+      --lift: translateY(-4px);
+
+      /* Motion */
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1180px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Hero Header */
+    .hero-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-xl);
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    .hero-title-group {
+      max-width: 65ch;
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--surface-container-low);
+      color: var(--secondary);
+      border: 2px solid var(--secondary);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+    }
+
+    .display {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: var(--display-size);
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .display em {
+      font-style: normal;
+      color: var(--primary);
+    }
+
+    .hero-sub {
+      margin: 0;
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+    }
+
+    /* Mode Segmented Control */
+    .mode-controls {
+      display: grid;
+      gap: var(--space-xs);
+      justify-items: start;
+    }
+
+    .control-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--on-surface-variant);
+    }
+
+    .segmented {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      background: var(--surface-container-high);
+      padding: var(--space-xs);
+      border-radius: var(--rounded-full);
+    }
+
+    .seg-btn {
+      border: none;
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      font-size: var(--label-size);
+      padding: var(--space-sm) var(--space-md);
+      min-height: 44px;
+      border-radius: var(--rounded-full);
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), background-color var(--dur-short) var(--ease-in-out), color var(--dur-short) var(--ease-in-out);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .seg-btn:hover {
+      transform: var(--pop-scale);
+      color: var(--on-surface);
+    }
+
+    .seg-btn[aria-pressed="true"] {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+
+    /* HUD Metrics Row */
+    .hud-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .hud-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      gap: var(--space-xs);
+      align-content: space-between;
+    }
+
+    .hud-card:nth-child(3n+2) { box-shadow: var(--shadow-sky); }
+    .hud-card:nth-child(3n+3) { box-shadow: var(--shadow-grape); }
+
+    .hud-figure {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+      color: var(--on-surface);
+      line-height: 1.1;
+    }
+
+    .hud-figure.accent { color: var(--primary); }
+
+    .hud-caption {
+      font-size: 0.85rem;
+      color: var(--on-surface-variant);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: var(--surface-container-high);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+      margin-top: var(--space-xs);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--tertiary);
+      border-radius: var(--rounded-full);
+      transition: width var(--dur-long) var(--ease-bounce);
+    }
+
+    /* Question Navigator Strip */
+    .nav-strip-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-grape);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .q-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .q-pill {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 var(--space-sm);
+      border-radius: var(--rounded-full);
+      border: 2px solid var(--outline-variant);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-in-out);
+    }
+
+    .q-pill:hover {
+      transform: var(--pop-scale);
+    }
+
+    .q-pill.is-answered {
+      background: var(--secondary-container);
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+
+    .q-pill.is-correct {
+      background: var(--positive-bg);
+      border-color: var(--positive);
+      color: var(--positive);
+    }
+
+    .q-pill.is-wrong {
+      background: var(--error-bg);
+      border-color: var(--error);
+      color: var(--error);
+    }
+
+    .q-pill.is-active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+      transform: scale(1.06);
+    }
+
+    /* Main Question Workspace */
+    .quiz-workspace {
+      container-type: inline-size;
+    }
+
+    .question-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    @container (max-width: 820px) {
+      .question-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .card.sky-shadow { box-shadow: var(--shadow-sky); }
+    .card.grape-shadow { box-shadow: var(--shadow-grape); }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .q-title {
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--headline-size);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .q-desc {
+      margin: 0;
+      color: var(--on-surface);
+      max-width: 65ch;
+    }
+
+    .q-desc p { margin: 0 0 var(--space-sm); }
+    .q-desc p:last-child { margin-bottom: 0; }
+
+    /* Visual Diagram Well */
+    .visual-well {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .visual-caption {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.85rem;
+      color: var(--on-surface-variant);
+    }
+
+    .svg-frame {
+      width: 100%;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .svg-frame svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .sandbox-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .sandbox-status {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      background: var(--surface-container-low);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+    }
+
+    /* Buttons */
+    .btn {
+      border: none;
+      border-radius: var(--rounded-full);
+      padding: var(--space-sm) var(--space-lg);
+      min-height: 44px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: var(--body-size);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-in-out);
+    }
+
+    .btn:hover:not(:disabled) { transform: var(--pop-scale); }
+    .btn:active:not(:disabled) { transform: scale(0.97); }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+    .btn-primary:hover:not(:disabled) { box-shadow: var(--shadow-pink-deep); }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--on-secondary);
+      box-shadow: var(--shadow-grape);
+    }
+
+    .btn-soft {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border: 2px solid var(--outline-variant);
+    }
+
+    .btn-quiet {
+      background: transparent;
+      color: var(--primary);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .btn-sm {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.875rem;
+    }
+
+    /* Multiple Choice Options */
+    .prompt-box {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+    }
+
+    .prompt-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .prompt-text {
+      margin: 0;
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      color: var(--on-surface);
+    }
+
+    .options-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .option-btn {
+      width: 100%;
+      min-height: 54px;
+      text-align: left;
+      background: var(--surface-container-low);
+      border: 2px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      color: var(--on-surface);
+      transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-in-out);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      transform: var(--lift);
+      box-shadow: var(--shadow-pink);
+      border-color: var(--primary);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-content {
+      flex: 1;
+      display: grid;
+      gap: var(--space-xs);
+      font-weight: 600;
+    }
+
+    .option-btn.is-selected {
+      background: var(--surface-container);
+      border-color: var(--secondary);
+      box-shadow: var(--shadow-grape);
+    }
+    .option-btn.is-selected .option-letter {
+      background: var(--secondary);
+      color: var(--on-secondary);
+    }
+
+    .option-btn.is-correct-choice {
+      background: var(--positive-bg);
+      border-color: var(--positive);
+      box-shadow: var(--shadow-sky);
+    }
+    .option-btn.is-correct-choice .option-letter {
+      background: var(--positive);
+      color: var(--on-primary);
+    }
+
+    .option-btn.is-wrong-choice {
+      background: var(--error-bg);
+      border-color: var(--error);
+    }
+    .option-btn.is-wrong-choice .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+    }
+
+    /* Explanation & Informatics Box */
+    .feedback-box {
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-sm);
+      animation: popIn var(--dur-short) var(--ease-bounce);
+    }
+
+    .feedback-box.correct {
+      background: var(--positive-bg);
+      color: var(--on-surface);
+    }
+
+    .feedback-box.wrong {
+      background: var(--error-bg);
+      color: var(--on-surface);
+    }
+
+    .feedback-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      font-weight: 800;
+      font-size: var(--subhead-size);
+    }
+
+    .feedback-head.correct-text { color: var(--positive); }
+    .feedback-head.wrong-text { color: var(--error); }
+
+    .cs-box {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .cs-title {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--secondary);
+      margin: 0;
+    }
+
+    .keyword-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-top: var(--space-xs);
+    }
+
+    .kw-pill {
+      background: var(--surface-container-low);
+      color: var(--secondary);
+      border-radius: var(--rounded-full);
+      padding: 2px var(--space-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-xs);
+    }
+
+    /* Summary & Report Panel */
+    .summary-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-pink-deep);
+      padding: var(--space-xl);
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .summary-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .score-hero {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .score-circle {
+      width: 112px;
+      height: 112px;
+      border-radius: var(--rounded-full);
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink-deep);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .score-circle strong {
+      font-size: 2.25rem;
+      font-weight: 900;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .score-circle span {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .topic-bar-row {
+      display: grid;
+      gap: var(--space-xs);
+      background: var(--surface-container);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+    }
+
+    .topic-bar-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .review-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+
+    .review-item {
+      background: var(--surface-container);
+      border: 2px solid transparent;
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      min-height: 48px;
+      transition: transform var(--dur-short) var(--ease-bounce);
+    }
+
+    .review-item:hover {
+      transform: var(--lift);
+      border-color: var(--primary);
+    }
+
+    .status-chip {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded-full);
+      white-space: nowrap;
+    }
+
+    .status-chip.ok { background: var(--positive-bg); color: var(--positive); }
+    .status-chip.err { background: var(--error-bg); color: var(--error); }
+    .status-chip.wait { background: var(--surface-container-high); color: var(--on-surface-variant); }
+
+    /* Table inside Question 1 */
+    .bebras-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+
+    .bebras-table th {
+      background: var(--surface-container-high);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-variant);
+      text-align: left;
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .bebras-table td {
+      padding: var(--space-sm) var(--space-md);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bebras-table tr:nth-child(even) td {
+      background: var(--surface-container);
+    }
+
+    .inline-msg {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--secondary);
+      padding: var(--space-xs) var(--space-sm);
+    }
+
+    .footer-credit {
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--on-surface-variant);
+      padding: var(--space-md) var(--space-xs);
+    }
+
+    .hidden { display: none !important; }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid { padding: var(--space-sm); gap: var(--space-md); }
+      .hero-panel, .summary-panel { padding: var(--space-md); border-radius: var(--rounded); }
+      .hud-grid { grid-template-columns: 1fr; }
+      .score-hero { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid">
+    <!-- Hero & Controls -->
+    <header class="hero-panel">
+      <div class="hero-top">
+        <div class="hero-title-group">
+          <div class="kicker-row">
+            <span class="badge">Bebras Indonesia 2016</span>
+            <span class="tag">Kelompok Siaga · SD/MI</span>
+          </div>
+          <h1 class="display">Tantangan Berpikir <em>Komputasional</em></h1>
+          <p class="hero-sub">
+            Uji logika dan ketelitianmu lewat 10 soal bergambar Bebras Challenge 2016. Setiap soal melatih cara berpikir informatika tanpa istilah rumit — cukup amati diagramnya dan pilih jawaban terbaik!
+          </p>
+        </div>
+
+        <div class="mode-controls">
+          <span class="control-label" id="mode-label">Mode Pengerjaan</span>
+          <div class="segmented" role="group" aria-labelledby="mode-label">
+            <button type="button" class="seg-btn" id="btn-mode-practice" aria-pressed="true" onclick="setQuizMode('practice')">
+              Latihan (Langsung Bahas)
+            </button>
+            <button type="button" class="seg-btn" id="btn-mode-exam" aria-pressed="false" onclick="setQuizMode('exam')">
+              Ujian (Nilai di Akhir)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live HUD Metrics -->
+      <div class="hud-grid">
+        <div class="hud-card">
+          <span class="control-label">Progres Kuis</span>
+          <div class="hud-figure" id="hud-progress-text">0 / 10</div>
+          <div class="progress-track" aria-label="Progres pengerjaan soal">
+            <div class="progress-fill" id="hud-progress-bar" style="width: 0%;"></div>
+          </div>
+          <span class="hud-caption" id="hud-progress-cap">Pilih jawaban untuk mulai mencatat progres</span>
+        </div>
+
+        <div class="hud-card">
+          <span class="control-label">Skor Otomatis</span>
+          <div class="hud-figure accent" id="hud-score-text">0 / 100</div>
+          <span class="hud-caption" id="hud-score-cap">Setiap jawaban benar bernilai 10 poin</span>
+        </div>
+
+        <div class="hud-card">
+          <span class="control-label">Ketepatan &amp; Aksi</span>
+          <div class="hud-figure" id="hud-accuracy-text">—</div>
+          <div class="sandbox-bar">
+            <button type="button" class="btn btn-soft btn-sm" id="btn-toggle-summary" onclick="toggleSummaryView()">
+              Lihat Rapor Skor
+            </button>
+            <button type="button" class="btn btn-quiet btn-sm" id="btn-reset-quiz" onclick="handleResetClick(this)">
+              Ulang Kuis
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Question Navigator Strip -->
+    <nav class="nav-strip-card" aria-label="Navigasi nomor soal">
+      <div class="q-pills" id="question-pills"></div>
+      <div id="exam-submit-wrap" class="hidden">
+        <button type="button" class="btn btn-primary btn-sm" id="btn-submit-exam" onclick="submitExam()">
+          Selesai &amp; Hitung Skor
+        </button>
+      </div>
+    </nav>
+
+    <!-- Active Question Workspace -->
+    <section class="quiz-workspace" id="quiz-workspace" aria-live="polite">
+      <div class="question-layout" id="question-container"></div>
+    </section>
+
+    <!-- Summary / Final Score Report -->
+    <section class="summary-panel hidden" id="summary-panel" aria-label="Rapor skor akhir"></section>
+
+    <footer class="footer-credit">
+      Diadaptasi dari naskah Tantangan Bebras Indonesia 2016 — Kelompok Siaga (SD/MI), NBO Bebras Indonesia &amp; Bebras International Challenge on Informatics and Computer Fluency (Lisensi CC BY-SA 3.0).
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    // =========================================================================
+    // DATA: 10 Soal Tantangan Bebras Indonesia 2016 - Kelompok Siaga (SD/MI)
+    // =========================================================================
+    const QUESTIONS = [
+      {
+        id: 1,
+        code: `I-2016-SK-01`,
+        title: `Empat Pekerjaan`,
+        topic: `Penjadwalan & Optimasi`,
+        keywords: [`Penjadwalan`, `Optimasi`, `Batasan Waktu`],
+        descHtml: `
+          <p>Dengklek si berang-berang harus melakukan 4 tugas selama jam istirahat pukul <strong>12:00 – 13:00</strong>, yaitu membeli buku di Toko Buku, membeli susu dan roti di Toko Makanan, mengirim buku ke Kantor Pos, serta minum kopi di Kafetaria.</p>
+          <p>Perkiraan durasi setiap tugas hanya berlaku di luar jam sibuk, sehingga ia harus menghindari jam sibuk di semua tempat. Perlu diingat juga bahwa ia mengirim buku setelah membelinya di Toko Buku.</p>
+        `,
+        tableHtml: `
+          <table class="bebras-table" aria-label="Tabel durasi dan jam sibuk empat tempat">
+            <thead>
+              <tr><th>Tempat</th><th>Durasi</th><th>Jam Sibuk</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Toko Buku</td><td>15 menit</td><td>12:40 – 13:00</td></tr>
+              <tr><td>Toko Makanan</td><td>10 menit</td><td>12:00 – 12:40</td></tr>
+              <tr><td>Kantor Pos</td><td>15 menit</td><td>12:00 – 12:30</td></tr>
+              <tr><td>Kafetaria</td><td>20 menit</td><td>12:30 – 12:50</td></tr>
+            </tbody>
+          </table>
+        `,
+        prompt: `Urutan kunjungan manakah (dari kiri ke kanan) yang membuat Dengklek terhindar dari jam sibuk semua tempat?`,
+        options: [
+          { key: `A`, text: `Toko Buku → Kantor Pos → Kafetaria → Toko Makanan` },
+          { key: `B`, text: `Kafetaria → Toko Buku → Kantor Pos → Toko Makanan` },
+          { key: `C`, text: `Kafetaria → Kantor Pos → Toko Buku → Toko Makanan` },
+          { key: `D`, text: `Toko Buku → Kafetaria → Toko Makanan → Kantor Pos` }
+        ],
+        correct: `B`,
+        explanation: `Total waktu keempat tugas tepat 60 menit (20 + 15 + 15 + 10 = 60 menit), pas dengan jam istirahat 12:00–13:00. Ia harus ke <strong>Kafetaria (12:00–12:20)</strong> lebih dulu sebelum jam sibuknya mulai pukul 12:30, lalu ke <strong>Toko Buku (12:20–12:35)</strong> sebelum sibuk pukul 12:40, dilanjutkan ke <strong>Kantor Pos (12:35–12:50)</strong> sesudah jam sibuknya berakhir pukul 12:30, dan terakhir ke <strong>Toko Makanan (12:50–13:00)</strong> sesudah sibuk pukul 12:40.`,
+        informatics: `Dalam ilmu komputer, menentukan urutan paling optimal yang memenuhi berbagai batasan disebut <strong>penjadwalan (scheduling)</strong>. Penjadwalan digunakan untuk mengatur perakitan barang di pabrik hingga cara prosesor komputer (CPU) mengeksekusi instruksi.`
+      },
+      {
+        id: 2,
+        code: `I-2016-HU-02`,
+        title: `Resep Rahasia`,
+        topic: `Struktur Data (Linked List)`,
+        keywords: [`Linked list`, `List`, `Item`, `Pointer`],
+        descHtml: `
+          <p>Keluarga Bebras sedang mempersiapkan Festival Makanan dan ingin memanggang kue kering. Kati sangat memperhatikan urutan memasukkan 5 bahan kue yang tersebar di taman.</p>
+          <p>Pada setiap bahan kue terdapat secarik kertas bergambar yang menunjuk bahan kue <strong>berikutnya</strong> yang harus ditambahkan. Hanya ada satu bahan kue yang tidak memiliki kertas penunjuk (bahan terakhir).</p>
+        `,
+        prompt: `Berdasarkan petunjuk kertas di taman, bahan kue manakah yang harus dimasukkan pertama kali?`,
+        options: [
+          { key: `A`, text: `Apel` },
+          { key: `B`, text: `Kacang Kenari` },
+          { key: `C`, text: `Buah Pohon Cemara` },
+          { key: `D`, text: `Stroberi` }
+        ],
+        correct: `B`,
+        explanation: `Bahan pertama adalah bahan yang <strong>tidak ditunjuk</strong> oleh kertas mana pun, yaitu <strong>Kacang Kenari (B)</strong>. Dari Kacang Kenari, urutannya berantai: Kacang Kenari → Bunga Merah → Apel → Buah Pohon Cemara → Stroberi. Jika mulai dari Apel, Bunga Merah terlewat; jika mulai dari Stroberi, tidak ada petunjuk berikutnya.`,
+        informatics: `Struktur data pada soal ini disebut <strong>linked list</strong> (senarai berantai). Setiap item menyimpan nilai dan <em>pointer</em> (penunjuk) ke item berikutnya. Mengetahui elemen pertama (<em>head</em>) sangat penting untuk menelusuri seluruh daftar.`
+      },
+      {
+        id: 3,
+        code: `I-2016-SK-10`,
+        title: `Kepik-Kepik`,
+        topic: `Grid & Tetangga`,
+        keywords: [`Grid`, `Tetangga dalam Grid`, `Sel Tetangga`],
+        descHtml: `
+          <p>Ada beberapa ekor kepik di dalam grid berukuran 4 × 4 (16 sel). Sebuah sel dikatakan <strong>bertetangga</strong> dengan sel lainnya jika sisi atau sudut/pojok keduanya bersebelahan.</p>
+          <p>Artinya, setiap sel bisa memiliki hingga 8 sel tetangga di sekelilingnya. Klik huruf A, B, C, atau D pada gambar untuk menyorot kotak tetangganya!</p>
+        `,
+        prompt: `Pada gambar grid 4 × 4 tersebut, sel manakah yang dikelilingi oleh paling banyak kepik?`,
+        options: [
+          { key: `A`, text: `Sel A` },
+          { key: `B`, text: `Sel B` },
+          { key: `C`, text: `Sel C` },
+          { key: `D`, text: `Sel D` }
+        ],
+        correct: `B`,
+        explanation: `Dengan menghitung seluruh kepik di 8 arah (atas, bawah, kiri, kanan, dan 4 diagonal) untuk tiap sel: <strong>Sel B</strong> dikelilingi oleh <strong>6 ekor kepik</strong>, sedangkan Sel A dikelilingi 4 kepik, Sel C dikelilingi 4 kepik, dan Sel D dikelilingi 3 kepik.`,
+        informatics: `<strong>Grid</strong> adalah struktur baris dan kolom yang sering dipakai untuk merepresentasikan gambar digital yang tersusun dari piksel. Pada pengolahan gambar, komputer memeriksa piksel-piksel tetangga untuk menajamkan atau menghaluskan citra.`
+      },
+      {
+        id: 4,
+        code: `I-2016-UK-06`,
+        title: `Pesan Rahasia`,
+        topic: `Kriptografi Transposisi`,
+        keywords: [`Pesan Rahasia`, `Kriptografi`, `Enkripsi`, `Dekripsi`, `Transposisi`],
+        descHtml: `
+          <p>Agen Boris menyandikan pesan <code>MEETBILLYBEAVERAT6</code> ke dalam grid 4 kolom (baris demi baris, sisa diisi <code>X</code>), lalu menyalinnya dari atas ke bawah kolom demi kolom menjadi <code>MBYVTEIBE6ELERXTLAAX</code>.</p>
+          <p>Berta membalas dengan cara yang sama dan mengirim pesan rahasia: <strong><code>OIERKLTEILH!WBEX</code></strong>.</p>
+        `,
+        prompt: `Apakah isi pesan asli yang ingin dikirimkan Berta kepada Boris?`,
+        options: [
+          { key: `A`, text: `OKWHERETOMEET!` },
+          { key: `B`, text: `OKIWILLBETHERE!` },
+          { key: `C`, text: `WILLYOUBETHERETOO?` },
+          { key: `D`, text: `OKIWILLMEETHIM!` }
+        ],
+        correct: `B`,
+        explanation: `Pesan rahasia Berta memiliki 16 huruf, sehingga membentuk grid 4 × 4. Kita masukkan hurufnya kembali <strong>kolom demi kolom</strong> dari atas ke bawah: kolom 1 = <code>OIER</code>, kolom 2 = <code>KLTE</code>, kolom 3 = <code>ILH!</code>, kolom 4 = <code>WBEX</code>. Jika dibaca baris demi baris dari kiri ke kanan, terbaca: <strong>OKIWILLBETHERE!</strong> (ditambah pengisi <code>X</code>).`,
+        informatics: `Mengubah pesan asli menjadi kode rahasia disebut <strong>enkripsi</strong>, dan mengembalikannya disebut <strong>dekripsi</strong>. Metode menukar baris dan kolom pada grid termasuk penyandian transposisi dalam ilmu <strong>kriptografi</strong>.`
+      },
+      {
+        id: 5,
+        code: `I-2016-PK-03`,
+        title: `Mengecat`,
+        topic: `Algoritma & Transformasi`,
+        keywords: [`Computer Vision`, `Transformasi Gambar`, `Algoritma`],
+        descHtml: `
+          <p>Dengklek dapat mengubah gambar di tembok memakai roller (kuas gulung) ajaib. Kuas tersebut mengganti setiap bentuk gambar menjadi bentuk berikutnya sesuai arah panah pada aturan.</p>
+          <p>Amati contoh pemakaian kuas ajaib dan aturan perubahannya di bawah ini.</p>
+        `,
+        prompt: `Gambar urutan bentuk manakah yang dihasilkan setelah memakai kuas ajaib pada soal?`,
+        options: [
+          { key: `A`, text: `Persegi, Lingkaran, Segitiga, Lingkaran`, shapes: [`square`, `circle`, `triangle`, `circle`] },
+          { key: `B`, text: `Persegi, Persegi, Segitiga, Lingkaran`, shapes: [`square`, `square`, `triangle`, `circle`] },
+          { key: `C`, text: `Persegi, Lingkaran, Persegi, Segitiga`, shapes: [`square`, `circle`, `square`, `triangle`] },
+          { key: `D`, text: `Persegi, Persegi, Lingkaran, Segitiga`, shapes: [`square`, `square`, `circle`, `triangle`] }
+        ],
+        correct: `B`,
+        explanation: `Dengan menerapkan aturan kuas ajaib (Segitiga → Persegi, Persegi → Lingkaran, Lingkaran → Bintang, Bintang → Segitiga) pada masukan <strong>Segitiga, Segitiga, Bintang, Persegi</strong>, hasilnya adalah <strong>Persegi, Persegi, Segitiga, Lingkaran (B)</strong>. Pilihan (A) dan (C) salah pada simbol kedua (tidak seharusnya lingkaran), sedangkan (D) hanya benar pada dua simbol awal.`,
+        informatics: `Menjalankan aturan langkah demi langkah secara teratur disebut <strong>algoritma</strong>. Cara kerja kuas ajaib ini mirip dengan filter dan transformasi piksel dalam bidang <strong>computer vision</strong>.`
+      },
+      {
+        id: 6,
+        code: `I-2016-CZ-08b`,
+        title: `Kembali`,
+        topic: `Gerak Robot & Loop`,
+        keywords: [`Robot Motion`, `Final State`, `Loop`],
+        descHtml: `
+          <p>Sebuah lebah robot memiliki 4 tombol panah di punggungnya: Maju (↑), Mundur (↓), Putar Kiri 90° (↺), dan Putar Kanan 90° (↻), serta tombol <strong>GO</strong> untuk menjalankan program.</p>
+          <p>Empat anak membuat program berbeda, menekan tombol <strong>GO</strong> sekali, lalu menekan <strong>GO</strong> sekali lagi (program dijalankan 2 kali berturut-turut).</p>
+        `,
+        prompt: `Manakah deretan tombol yang mengembalikan lebah robot tepat ke posisi dan arah semula setelah dua kali GO?`,
+        options: [
+          { key: `A`, text: `↑  ↑  ↺  ↑  GO  GO`, seq: [`F`, `F`, `L`, `F`] },
+          { key: `B`, text: `↑  ↻  ↑  ↑  GO  GO`, seq: [`F`, `R`, `F`, `F`] },
+          { key: `C`, text: `↑  ↺  ↑  ↺  GO  GO`, seq: [`F`, `L`, `F`, `L`] },
+          { key: `D`, text: `↑  ↺  ↓  ↻  GO  GO`, seq: [`F`, `L`, `B`, `R`] }
+        ],
+        correct: `C`,
+        explanation: `Agar kembali ke posisi dan arah awal setelah dijalankan 2 kali, eksekusi pertama harus mengembalikan robot ke titik awal atau membalik arahnya <strong>180°</strong>. Hanya program <strong>C (↑ ↺ ↑ ↺)</strong> yang memiliki dua kali putar kiri 90° (= 180° berbalik arah), sehingga saat tombol GO ditekan kedua kalinya, lebah menelusuri balik dan pulang tepat ke posisi serta arah semula.`,
+        informatics: `Saat menulis program yang dijalankan berulang kali dalam sebuah <strong>loop</strong>, kita harus memperhatikan <em>status akhir (final state)</em> objek setelah satu kali eksekusi agar perilaku pengulangannya tepat.`
+      },
+      {
+        id: 7,
+        code: `I-2016-FR-04`,
+        title: `Robot`,
+        topic: `Pemecahan Labirin & Loop`,
+        keywords: [`Maze`, `Memetakan Jalur`, `Loop`],
+        descHtml: `
+          <p>Bantulah si Robot Hijau keluar dari lorong labirin menuju pintu keluar di kanan! Robot dapat bergerak ke empat arah: Kanan (<strong>R</strong>), Bawah (<strong>B</strong>), Kiri (<strong>L</strong>), dan Atas (<strong>A</strong>).</p>
+          <p>Urutan berisi 8 instruksi tersebut akan diulang sebanyak <strong>4 kali (4x)</strong> berturut-turut.</p>
+        `,
+        prompt: `Urutan 8 huruf manakah (diulang 4x) yang berhasil membawa Robot keluar dari lorong?`,
+        options: [
+          { key: `A`, text: `B B R R L L A A (×4)` },
+          { key: `B`, text: `R R B B A A A L (×4)` },
+          { key: `C`, text: `B B R R A A R R (×4)` },
+          { key: `D`, text: `A A B B R R A A (×4)` }
+        ],
+        correct: `C`,
+        explanation: `Dalam satu siklus, robot harus turun 2 langkah (<code>BB</code>), geser kanan 2 langkah (<code>RR</code>), naik 2 langkah (<code>AA</code>), lalu geser kanan 2 langkah (<code>RR</code>) melewati tiang pembatas berikutnya. Dengan mengulang pola <strong><code>BBRRAARR</code> sebanyak 4 kali</strong>, robot melewati keempat rintangan dan keluar dari lorong.`,
+        informatics: `Dalam pemrograman, <strong>loop (pengulangan)</strong> menjalankan sederetan instruksi berulang kali sampai suatu kondisi atau batas tercapai. Pola berulang membuat kode jauh lebih ringkas dan efisien.`
+      },
+      {
+        id: 8,
+        code: `I-2016-IR-01a`,
+        title: `Lomba Melompat`,
+        topic: `Perkalian & Modulo`,
+        keywords: [`Ukuran Langkah`, `Perkalian`, `Modulo`],
+        descHtml: `
+          <p>Kelinci, kodok, dan kangguru berlomba di lintasan melingkar dengan <strong>15 posisi langkah</strong> bernomor <code>0</code> sampai <code>14</code>. Setiap melewati 14, posisi berikutnya kembali ke <code>0</code>.</p>
+          <p>Semua mulai di posisi <code>0</code>. Setiap peluit berbunyi: <strong>Kelinci</strong> melompat 3 posisi, <strong>Kodok</strong> 2 posisi, dan <strong>Kangguru</strong> 5 posisi.</p>
+        `,
+        prompt: `Setelah empat kali bunyi peluit, di nomor posisi berapakah Kelinci, Kodok, dan Kangguru berada berturut-turut?`,
+        options: [
+          { key: `A`, text: `9, 6, 15` },
+          { key: `B`, text: `12, 8, 5` },
+          { key: `C`, text: `12, 6, 10` },
+          { key: `D`, text: `3, 2, 5` }
+        ],
+        correct: `B`,
+        explanation: `Setelah 4 peluit: Kelinci melompat 4 × 3 = 12 langkah → posisi <strong>12</strong>; Kodok melompat 4 × 2 = 8 langkah → posisi <strong>8</strong>; Kangguru melompat 4 × 5 = 20 langkah. Karena satu putaran ada 15 posisi, posisi Kangguru adalah sisa pembagian 20 ÷ 15 = <strong>5</strong>. Jadi posisinya berturut-turut <strong>12, 8, 5</strong>.`,
+        informatics: `Soal ini melatih perkalian dan <strong>operasi modulo (sisa bagi)</strong> untuk menghitung posisi pada lintasan melingkar yang kembali ke nol setelah batas tertentu.`
+      },
+      {
+        id: 9,
+        code: `I-2016-CZ-09`,
+        title: `Merapikan Mainan`,
+        topic: `Pengenalan Pola`,
+        keywords: [`Berpikir Analitis`, `Observasi Teliti`, `Pola`],
+        descHtml: `
+          <p>Setelah merapikan mainan ke dalam kotak, ayah berang-berang memberi permainan tebak-tebakan dengan tiga lingkaran berlabel pola: <strong>AABBCC</strong>, <strong>ABCABC</strong>, dan <strong>ABCCBA</strong>.</p>
+          <p>Amati tiga rangkaian mainan berikut: boneka dalam lingkaran, untaian manik-manik pada tali, dan deretan lidi-lidi miring dari kiri ke kanan.</p>
+        `,
+        prompt: `Penempatan mainan yang tepat untuk lingkaran berlabel AABBCC, ABCABC, dan ABCCBA berturut-turut adalah…`,
+        options: [
+          { key: `A`, text: `AABBCC: Manik-manik · ABCABC: Boneka · ABCCBA: Lidi-lidi` },
+          { key: `B`, text: `AABBCC: Boneka · ABCABC: Lidi-lidi · ABCCBA: Manik-manik` },
+          { key: `C`, text: `AABBCC: Boneka · ABCABC: Manik-manik · ABCCBA: Lidi-lidi` },
+          { key: `D`, text: `AABBCC: Lidi-lidi · ABCABC: Manik-manik · ABCCBA: Boneka` }
+        ],
+        correct: `C`,
+        explanation: `Jika diamati teliti: urutan warna <strong>Boneka</strong> pada lingkaran berpasangan dua-dua searah jarum jam (<strong>AABBCC</strong>); urutan <strong>Manik-manik</strong> pada tali berulang tiga jenis bergantian (<strong>ABCABC</strong>); sedangkan kemiringan <strong>Lidi-lidi</strong> dari kiri ke kanan simetris kiri-tegak-kanan-kanan-tegak-kiri (<strong>ABCCBA</strong>).`,
+        informatics: `Memecahkan persoalan dan merancang sistem membutuhkan <strong>berpikir analitis</strong> serta observasi akurat untuk memisahkan detail penting (pola urutan) dari detail yang mengecoh.`
+      },
+      {
+        id: 10,
+        code: `I-2016-US-01`,
+        title: `Botol`,
+        topic: `Pengurutan (Sorting)`,
+        keywords: [`Mengurutkan`, `Urutan`, `Sorting`],
+        descHtml: `
+          <p>Bebras ingin menyusun 5 botol berwarna (Biru, Merah, Pink, Hijau, dan Kuning) di atas sebuah rak.</p>
+          <p>Ia ingin botol-botol tersebut dibariskan dari yang <strong>paling kecil bagian tengah/lehernya hingga yang paling besar</strong> dari kiri ke kanan.</p>
+        `,
+        prompt: `Manakah urutan botol dari bagian tengah paling kecil ke paling besar (kiri ke kanan) yang benar?`,
+        options: [
+          { key: `A`, text: `Biru, Hijau, Kuning, Merah, Pink` },
+          { key: `B`, text: `Hijau, Biru, Kuning, Merah, Pink` },
+          { key: `C`, text: `Hijau, Kuning, Biru, Pink, Merah` },
+          { key: `D`, text: `Pink, Merah, Kuning, Biru, Hijau` }
+        ],
+        correct: `B`,
+        explanation: `Dengan membandingkan lebar bagian tengah/leher tiap botol satu per satu, botol yang paling ramping harus diletakkan paling depan/kiri agar tidak tertutupi botol yang lebih lebar. Urutan dari terkecil ke terbesar adalah: <strong>Hijau, Biru, Kuning, Merah, Pink</strong>.`,
+        informatics: `Persoalan ini merupakan dasar dari algoritma <strong>mengurutkan (sorting)</strong> dalam ilmu komputer — menata kumpulan data berdasarkan kriteria perbandingan tertentu.`
+      }
+    ];
+
+    // =========================================================================
+    // STATE MANAGEMENT
+    // =========================================================================
+    const DEFAULT_STATE = {
+      mode: `practice`,         // 'practice' | 'exam'
+      currentIdx: 0,            // 0..9
+      answers: {},              // { "1": "B", ... }
+      examSubmitted: false,
+      showSummary: false,
+      // Sandbox local states (ephemeral / helper)
+      q1Order: [],
+      q3InspectCell: null,
+      q6SimStep: 0,
+      q7AnimStep: 0,
+      q8Whistle: 0
+    };
+
+    let appState = cloneState(DEFAULT_STATE);
+    let activeTimers = [];
+    let isSavingSubmission = false;
+    let submissionSaveStatus = null;
+
+    function cloneState(obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function clearActiveTimers() {
+      for (let i = 0; i < activeTimers.length; i++) {
+        clearInterval(activeTimers[i]);
+        clearTimeout(activeTimers[i]);
+      }
+      activeTimers = [];
+    }
+
+    async function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          await window.notebookAppApi.setAppState({
+            mode: appState.mode,
+            currentIdx: appState.currentIdx,
+            answers: appState.answers,
+            examSubmitted: appState.examSubmitted,
+            showSummary: appState.showSummary
+          });
+          return true;
+        }
+      } catch (err) {
+        console.error(`Gagal menyimpan progres kuis.`, err);
+      }
+      return false;
+    }
+
+    function computeStats() {
+      let answeredCount = 0;
+      let correctCount = 0;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const chosen = appState.answers[String(q.id)];
+        if (chosen) {
+          answeredCount++;
+          if (chosen === q.correct) {
+            correctCount++;
+          }
+        }
+      }
+      const revealScore = appState.mode === `practice` || appState.examSubmitted;
+      const score = revealScore ? correctCount * 10 : 0;
+      return { answeredCount, correctCount, score, revealScore };
+    }
+
+    function isQuestionRevealed(qId) {
+      const hasAnswer = Boolean(appState.answers[String(qId)]);
+      if (appState.mode === `practice`) return hasAnswer;
+      return appState.examSubmitted;
+    }
+
+    // =========================================================================
+    // INTERACTIVE HANDLERS (Hoisted function declarations)
+    // =========================================================================
+    function setQuizMode(newMode) {
+      if (appState.mode === newMode) return;
+      clearActiveTimers();
+      appState.mode = newMode;
+      appState.showSummary = false;
+      renderAll();
+      persistState();
+    }
+
+    function goToQuestion(idx) {
+      if (idx < 0 || idx >= QUESTIONS.length) return;
+      clearActiveTimers();
+      appState.currentIdx = idx;
+      appState.showSummary = false;
+      appState.q3InspectCell = null;
+      appState.q6SimStep = 0;
+      appState.q7AnimStep = 0;
+      renderAll();
+      persistState();
+    }
+
+    function selectOption(qId, optionKey) {
+      const qKey = String(qId);
+      if (appState.mode === `practice` && appState.answers[qKey]) {
+        return; // Locked once answered in practice mode
+      }
+      if (appState.mode === `exam` && appState.examSubmitted) {
+        return;
+      }
+      appState.answers[qKey] = optionKey;
+      renderAll();
+      persistState();
+    }
+
+    async function submitExam() {
+      if (appState.mode !== `exam` || isSavingSubmission) return;
+      appState.examSubmitted = true;
+      appState.showSummary = true;
+      submissionSaveStatus = `saving`;
+      renderAll();
+      isSavingSubmission = true;
+      const saved = await persistState();
+      isSavingSubmission = false;
+      submissionSaveStatus = saved ? `saved` : `failed`;
+      renderSummaryPanel();
+    }
+
+    function toggleSummaryView() {
+      appState.showSummary = !appState.showSummary;
+      renderAll();
+      persistState();
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Klik lagi untuk ulang`;
+        const t = setTimeout(function () {
+          if (btn) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `Ulang Kuis`;
+          }
+        }, 3500);
+        activeTimers.push(t);
+        return;
+      }
+      clearActiveTimers();
+      btn.dataset.armed = `false`;
+      btn.textContent = `Ulang Kuis`;
+      const keepMode = appState.mode;
+      appState = cloneState(DEFAULT_STATE);
+      appState.mode = keepMode;
+      renderAll();
+      persistState();
+    }
+
+    function exportScoreReport() {
+      const stats = computeStats();
+      const lines = [
+        `LAPORAN KUIS TANTANGAN BEBRAS INDONESIA 2016 - KELOMPOK SIAGA (SD/MI)`,
+        `Mode: ${appState.mode === `practice` ? `Latihan` : `Ujian`}`,
+        `Soal Dijawab: ${stats.answeredCount} / 10`,
+        `Skor Total: ${stats.score} / 100 (${stats.correctCount} Benar)`,
+        ``,
+        `Rincian Jawaban:`
+      ];
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const ans = appState.answers[String(q.id)] || `-`;
+        const status = ans === q.correct ? `BENAR` : (ans === `-` ? `BELUM DIJAWAB` : `SALAH (Kunci: ${q.correct})`);
+        lines.push(`${q.id}. ${q.title} [${q.topic}] -> Pilihan: ${ans} | ${status}`);
+      }
+      const reportText = lines.join(`\n`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: reportText,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `skor-bebras-siaga-2016.txt`
+        });
+      }
+    }
+
+    // --- Sandbox Micro-Interactions for Visual Diagrams ---
+    function toggleQ1Task(taskCode) {
+      const idx = appState.q1Order.indexOf(taskCode);
+      if (idx !== -1) {
+        appState.q1Order.splice(idx, 1);
+      } else if (appState.q1Order.length < 4) {
+        appState.q1Order.push(taskCode);
+      }
+      renderQuestionWorkspace();
+    }
+
+    function clearQ1Order() {
+      appState.q1Order = [];
+      renderQuestionWorkspace();
+    }
+
+    function inspectQ3Cell(letter) {
+      appState.q3InspectCell = appState.q3InspectCell === letter ? null : letter;
+      renderQuestionWorkspace();
+    }
+
+    function stepQ6Bee() {
+      appState.q6SimStep = (appState.q6SimStep + 1) % 9;
+      renderQuestionWorkspace();
+    }
+
+    function playQ7Robot() {
+      clearActiveTimers();
+      appState.q7AnimStep = 0;
+      renderQuestionWorkspace();
+      const timer = setInterval(function () {
+        if (appState.q7AnimStep >= 32) {
+          clearInterval(timer);
+          return;
+        }
+        appState.q7AnimStep++;
+        const svgSlot = document.getElementById(`q7-svg-slot`);
+        if (svgSlot) {
+          svgSlot.innerHTML = buildQ7Svg(appState.q7AnimStep);
+        }
+        const statusEl = document.getElementById(`q7-step-status`);
+        if (statusEl) {
+          statusEl.textContent = `Langkah ${appState.q7AnimStep} / 32 (Siklus ${Math.min(4, Math.floor((appState.q7AnimStep - 1) / 8) + 1)})`;
+        }
+      }, 150);
+      activeTimers.push(timer);
+    }
+
+    function setQ8Whistle(n) {
+      appState.q8Whistle = n;
+      renderQuestionWorkspace();
+    }
+
+    // =========================================================================
+    // SVG DIAGRAM BUILDERS (100% Tokenized Colors, Crisp Vector Art)
+    // =========================================================================
+    function buildVisualForQuestion(q) {
+      switch (q.id) {
+        case 1: return buildQ1Visual(q);
+        case 2: return buildQ2Visual();
+        case 3: return buildQ3Visual();
+        case 4: return buildQ4Visual(q);
+        case 5: return buildQ5Visual();
+        case 6: return buildQ6Visual(q);
+        case 7: return buildQ7Visual(q);
+        case 8: return buildQ8Visual(q);
+        case 9: return buildQ9Visual();
+        case 10: return buildQ10Visual(q);
+        default: return ``;
+      }
+    }
+
+    // Q1: Empat Pekerjaan - Timeline + Interactive Schedule Tester
+    function buildQ1Visual(q) {
+      const tasksMeta = {
+        KAF: { name: `Kafetaria`, dur: 20, busyStart: 30, busyEnd: 50, color: `var(--illus-amber)` },
+        BUK: { name: `Toko Buku`, dur: 15, busyStart: 40, busyEnd: 60, color: `var(--illus-sky)` },
+        POS: { name: `Kantor Pos`, dur: 15, busyStart: 0, busyEnd: 30, color: `var(--illus-grape)` },
+        MAK: { name: `Toko Makanan`, dur: 10, busyStart: 0, busyEnd: 40, color: `var(--illus-emerald)` }
+      };
+      const rowsOrder = [`BUK`, `MAK`, `POS`, `KAF`];
+
+      // Compute user sandbox placement
+      let cursor = 0;
+      const placements = {};
+      let clashCount = 0;
+      for (let i = 0; i < appState.q1Order.length; i++) {
+        const code = appState.q1Order[i];
+        const t = tasksMeta[code];
+        const s = cursor;
+        const e = cursor + t.dur;
+        const overlapsBusy = (s < t.busyEnd && e > t.busyStart);
+        if (overlapsBusy) clashCount++;
+        placements[code] = { start: s, end: e, orderNum: i + 1, clash: overlapsBusy };
+        cursor = e;
+      }
+
+      const x0 = 130;
+      const wGrid = 420;
+      const pxPerMin = wGrid / 60;
+      let svgRows = ``;
+
+      // Time axis labels every 10 mins
+      for (let m = 0; m <= 60; m += 10) {
+        const x = x0 + m * pxPerMin;
+        const label = m === 60 ? `13:00` : `12:${m < 10 ? `0` + m : m}`;
+        svgRows += `<line x1="${x}" y1="30" x2="${x}" y2="195" stroke="var(--outline-variant)" stroke-width="1" stroke-dasharray="3 3"/>`;
+        svgRows += `<text x="${x}" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface-variant)">${label}</text>`;
+      }
+
+      for (let r = 0; r < rowsOrder.length; r++) {
+        const code = rowsOrder[r];
+        const t = tasksMeta[code];
+        const y = 38 + r * 38;
+        svgRows += `<text x="10" y="${y + 20}" font-size="12" font-weight="700" fill="var(--on-surface)">${t.name}</text>`;
+        svgRows += `<rect x="${x0}" y="${y + 2}" width="${wGrid}" height="28" rx="8" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="1"/>`;
+        const bx = x0 + t.busyStart * pxPerMin;
+        const bw = (t.busyEnd - t.busyStart) * pxPerMin;
+        svgRows += `<rect x="${bx}" y="${y + 2}" width="${bw}" height="28" rx="6" fill="var(--illus-coral-soft)" stroke="var(--illus-coral)" stroke-width="1.5"/>`;
+        svgRows += `<text x="${bx + bw / 2}" y="${y + 20}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--error)">Sibuk</text>`;
+
+        if (placements[code]) {
+          const p = placements[code];
+          const px = x0 + p.start * pxPerMin;
+          const pw = (p.end - p.start) * pxPerMin;
+          const fillCol = p.clash ? `var(--error)` : `var(--positive)`;
+          svgRows += `<rect x="${px + 1}" y="${y + 4}" width="${pw - 2}" height="24" rx="6" fill="${fillCol}" opacity="0.9"/>`;
+          svgRows += `<text x="${px + pw / 2}" y="${y + 20}" text-anchor="middle" font-size="11" font-weight="800" fill="var(--on-primary)">#${p.orderNum}</text>`;
+        }
+      }
+
+      let statusText = `Klik 4 tombol tempat di bawah secara berurutan untuk menguji jadwal!`;
+      if (appState.q1Order.length > 0 && appState.q1Order.length < 4) {
+        statusText = `Dipilih ${appState.q1Order.length}/4 tempat (${cursor} menit terisi).`;
+      } else if (appState.q1Order.length === 4) {
+        const bookBeforePost = appState.q1Order.indexOf(`BUK`) < appState.q1Order.indexOf(`POS`);
+        if (clashCount === 0 && bookBeforePost) {
+          statusText = `Hebat! Semua bebas jam sibuk &amp; buku dibeli sebelum ke Kantor Pos!`;
+        } else if (clashCount > 0) {
+          statusText = `Ada ${clashCount} tempat yang menabrak jam sibuk. Coba susun ulang!`;
+        } else {
+          statusText = `Bebas sibuk, tapi Toko Buku harus dikunjungi sebelum Kantor Pos!`;
+        }
+      }
+
+      const btns = [`BUK`, `MAK`, `POS`, `KAF`].map(function (code) {
+        const t = tasksMeta[code];
+        const idx = appState.q1Order.indexOf(code);
+        const label = idx !== -1 ? `${idx + 1}. ${t.name}` : `+ ${t.name} (${t.dur}m)`;
+        return `<button type="button" class="btn btn-sm ${idx !== -1 ? `btn-secondary` : `btn-soft`}" onclick="toggleQ1Task('${code}')">${label}</button>`;
+      }).join(``);
+
+      return `
+        ${q.tableHtml}
+        <div class="svg-frame">
+          <svg viewBox="0 0 570 205" width="570" height="205" role="img" aria-label="Diagram timeline jam istirahat 12:00 hingga 13:00">
+            ${svgRows}
+          </svg>
+        </div>
+        <div class="sandbox-bar">
+          ${btns}
+          <button type="button" class="btn btn-quiet btn-sm" onclick="clearQ1Order()">Bersihkan</button>
+        </div>
+        <div class="sandbox-status">${statusText}</div>
+      `;
+    }
+
+    // Q2: Resep Rahasia - 5 Garden Ingredients & Pointer Notes
+    function buildQ2Visual() {
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 560 270" width="560" height="270" role="img" aria-label="Ilustrasi 5 bahan kue di taman beserta kertas penunjuk bahan berikutnya">
+            <rect x="4" y="4" width="552" height="262" rx="18" fill="var(--illus-emerald-soft)" stroke="var(--illus-emerald)" stroke-width="2"/>
+            <!-- Connecting subtle dashed hints? No, keep it as scattered clue cards so user traces pointers! -->
+
+            <!-- Card 1: Apel -> menunjuk Buah Cemara -->
+            <g transform="translate(24, 22)">
+              <rect width="152" height="98" rx="14" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <circle cx="38" cy="40" r="20" fill="var(--illus-coral)"/>
+              <path d="M38 18 Q44 10 50 16" stroke="var(--illus-emerald)" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <text x="68" y="36" font-size="13" font-weight="800" fill="var(--on-surface)">Apel (A)</text>
+              <rect x="12" y="64" width="128" height="24" rx="12" fill="var(--illus-amber-soft)"/>
+              <text x="76" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface)">Kertas → Cemara</text>
+            </g>
+
+            <!-- Card 2: Stroberi -> Tidak ada kertas -->
+            <g transform="translate(204, 22)">
+              <rect width="152" height="98" rx="14" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <path d="M38 22 C52 22 54 44 38 56 C22 44 24 22 38 22 Z" fill="var(--illus-pink-deep)"/>
+              <path d="M30 22 L38 15 L46 22 Z" fill="var(--illus-emerald)"/>
+              <text x="64" y="36" font-size="13" font-weight="800" fill="var(--on-surface)">Stroberi (D)</text>
+              <rect x="12" y="64" width="128" height="24" rx="12" fill="var(--surface-container-high)"/>
+              <text x="76" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface-variant)">Tidak ada kertas</text>
+            </g>
+
+            <!-- Card 3: Kacang Kenari (B) -> menunjuk Bunga Merah -->
+            <g transform="translate(384, 22)">
+              <rect width="152" height="98" rx="14" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <ellipse cx="36" cy="40" rx="18" ry="15" fill="var(--illus-wood)"/>
+              <path d="M22 36 Q36 28 50 36" stroke="var(--illus-wood-dark)" stroke-width="2" fill="none"/>
+              <text x="62" y="36" font-size="13" font-weight="800" fill="var(--on-surface)">Kenari (B)</text>
+              <rect x="12" y="64" width="128" height="24" rx="12" fill="var(--illus-coral-soft)"/>
+              <text x="76" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface)">Kertas → Bunga</text>
+            </g>
+
+            <!-- Card 4: Buah Pohon Cemara (C) -> menunjuk Stroberi -->
+            <g transform="translate(96, 146)">
+              <rect width="166" height="98" rx="14" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <polygon points="38,18 52,54 24,54" fill="var(--illus-wood-dark)"/>
+              <text x="64" y="34" font-size="12" font-weight="800" fill="var(--on-surface)">Buah Cemara</text>
+              <text x="64" y="50" font-size="11" font-weight="700" fill="var(--on-surface-variant)">(Opsi C)</text>
+              <rect x="12" y="64" width="142" height="24" rx="12" fill="var(--surface-container)"/>
+              <text x="83" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="var(--primary)">Kertas → Stroberi</text>
+            </g>
+
+            <!-- Card 5: Bunga Merah -> menunjuk Apel -->
+            <g transform="translate(298, 146)">
+              <rect width="166" height="98" rx="14" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <circle cx="38" cy="36" r="8" fill="var(--illus-amber)"/>
+              <circle cx="38" cy="24" r="7" fill="var(--illus-coral)"/>
+              <circle cx="49" cy="36" r="7" fill="var(--illus-coral)"/>
+              <circle cx="38" cy="48" r="7" fill="var(--illus-coral)"/>
+              <circle cx="27" cy="36" r="7" fill="var(--illus-coral)"/>
+              <text x="66" y="38" font-size="13" font-weight="800" fill="var(--on-surface)">Bunga Merah</text>
+              <rect x="12" y="64" width="142" height="24" rx="12" fill="var(--illus-coral-soft)"/>
+              <text x="83" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface)">Kertas → Apel</text>
+            </g>
+          </svg>
+        </div>
+      `;
+    }
+
+    // Q3: Kepik-Kepik - 4x4 Interactive Grid
+    function buildQ3Visual() {
+      // 4x4 grid definition: L = Ladybug, A/B/C/D = target cell, "" = empty
+      const grid = [
+        [`L`, `A`, `L`, `L`],
+        [`L`, `L`, `B`, `L`],
+        [`C`, `L`, `L`, ``],
+        [``,  `L`, `D`, ``]
+      ];
+      const targetCoords = { A: [0, 1], B: [1, 2], C: [2, 0], D: [3, 2] };
+      const insp = appState.q3InspectCell ? targetCoords[appState.q3InspectCell] : null;
+
+      let cellsSvg = ``;
+      const size = 66;
+      const pad = 16;
+
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+          const val = grid[r][c];
+          const x = pad + c * size;
+          const y = pad + r * size;
+          const isTarget = val === `A` || val === `B` || val === `C` || val === `D`;
+          const isNeighbor = insp && !(insp[0] === r && insp[1] === c) && Math.abs(insp[0] - r) <= 1 && Math.abs(insp[1] - c) <= 1;
+          const isInspectedCenter = insp && insp[0] === r && insp[1] === c;
+
+          let fill = `var(--surface-container-low)`;
+          let stroke = `var(--outline-variant)`;
+          let sw = 2;
+          if (isNeighbor) {
+            fill = `var(--illus-amber-soft)`;
+            stroke = `var(--illus-amber)`;
+            sw = 2.5;
+          }
+          if (isInspectedCenter) {
+            fill = `var(--primary-container)`;
+            stroke = `var(--primary)`;
+            sw = 3;
+          }
+
+          cellsSvg += `<rect x="${x}" y="${y}" width="${size - 6}" height="${size - 6}" rx="12" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
+
+          const cx = x + (size - 6) / 2;
+          const cy = y + (size - 6) / 2;
+          if (val === `L`) {
+            // Cute SVG Ladybug
+            cellsSvg += `
+              <g transform="translate(${cx}, ${cy})">
+                <circle cx="0" cy="3" r="15" fill="var(--illus-coral)" stroke="var(--on-surface)" stroke-width="2"/>
+                <path d="M-8 -8 Q0 -18 8 -8 Z" fill="var(--on-surface)"/>
+                <line x1="0" y1="-8" x2="0" y2="18" stroke="var(--on-surface)" stroke-width="2"/>
+                <circle cx="-6" cy="2" r="2.5" fill="var(--on-surface)"/>
+                <circle cx="6" cy="2" r="2.5" fill="var(--on-surface)"/>
+                <circle cx="-5" cy="10" r="2.5" fill="var(--on-surface)"/>
+                <circle cx="5" cy="10" r="2.5" fill="var(--on-surface)"/>
+              </g>
+            `;
+          } else if (isTarget) {
+            cellsSvg += `<text x="${cx}" y="${cy + 7}" text-anchor="middle" font-size="22" font-weight="900" fill="var(--primary)">${val}</text>`;
+          }
+        }
+      }
+
+      const inspectBtns = [`A`, `B`, `C`, `D`].map(function (letter) {
+        const active = appState.q3InspectCell === letter;
+        return `<button type="button" class="btn btn-sm ${active ? `btn-primary` : `btn-soft`}" onclick="inspectQ3Cell('${letter}')">Sorot Tetangga ${letter}</button>`;
+      }).join(``);
+
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 292 292" width="280" height="280" role="img" aria-label="Grid 4 kali 4 berisi kepik dan huruf A, B, C, D">
+            <rect x="4" y="4" width="284" height="284" rx="20" fill="var(--surface-container-high)"/>
+            ${cellsSvg}
+          </svg>
+        </div>
+        <div class="sandbox-bar">
+          ${inspectBtns}
+        </div>
+      `;
+    }
+
+    // Q4: Pesan Rahasia - Transposition Grid Visual
+    function buildQ4Visual(q) {
+      const revealed = isQuestionRevealed(q.id);
+      const borisRows = [`MEET`, `BILL`, `YBEA`, `VERA`, `T6XX`];
+      const bertaCols = [`OIER`, `KLTE`, `ILH!`, `WBEX`];
+
+      let borisSvg = ``;
+      for (let r = 0; r < 5; r++) {
+        for (let c = 0; c < 4; c++) {
+          const x = 16 + c * 38;
+          const y = 40 + r * 34;
+          borisSvg += `<rect x="${x}" y="${y}" width="34" height="30" rx="6" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="1.5"/>`;
+          borisSvg += `<text x="${x + 17}" y="${y + 20}" text-anchor="middle" font-size="14" font-weight="800" fill="var(--on-surface)">${borisRows[r][c]}</text>`;
+        }
+      }
+
+      let bertaSvg = ``;
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+          const x = 310 + c * 42;
+          const y = 50 + r * 38;
+          const ch = revealed ? bertaCols[c][r] : `?`;
+          const fill = revealed ? `var(--positive-bg)` : `var(--surface-container-low)`;
+          const txtFill = revealed ? `var(--positive)` : `var(--on-surface-variant)`;
+          bertaSvg += `<rect x="${x}" y="${y}" width="38" height="34" rx="6" fill="${fill}" stroke="var(--secondary)" stroke-width="1.5"/>`;
+          bertaSvg += `<text x="${x + 19}" y="${y + 22}" text-anchor="middle" font-size="15" font-weight="800" fill="${txtFill}">${ch}</text>`;
+        }
+      }
+
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 510 245" width="510" height="245" role="img" aria-label="Diagram enkripsi pesan rahasia Boris dan grid dekripsi Berta">
+            <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="800" fill="var(--secondary)">CONTOH BORIS (Tulis Baris → Baca Kolom)</text>
+            ${borisSvg}
+            <path d="M188 125 L268 125" stroke="var(--primary)" stroke-width="3" stroke-linecap="round"/>
+            <polygon points="268,119 280,125 268,131" fill="var(--primary)"/>
+            <text x="392" y="24" text-anchor="middle" font-size="12" font-weight="800" fill="var(--primary)">BALASAN BERTA (4 Kolom)</text>
+            <text x="392" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface-variant)">OIER | KLTE | ILH! | WBEX</text>
+            ${bertaSvg}
+            <text x="392" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface-variant)">${revealed ? `Dibaca per baris: OKIWILLBETHERE!` : `Masukkan per kolom (atas ke bawah), lalu baca per baris!`}</text>
+          </svg>
+        </div>
+      `;
+    }
+
+    // Helper: draw geometric shapes for Q5
+    function drawShapeIcon(type, cx, cy, r) {
+      if (type === `triangle`) {
+        return `<polygon points="${cx},${cy - r} ${cx + r},${cy + r - 2} ${cx - r},${cy + r - 2}" fill="var(--illus-sky)" stroke="var(--on-surface)" stroke-width="2"/>`;
+      }
+      if (type === `square`) {
+        return `<rect x="${cx - r + 2}" y="${cy - r + 2}" width="${(r - 2) * 2}" height="${(r - 2) * 2}" rx="3" fill="var(--illus-amber)" stroke="var(--on-surface)" stroke-width="2"/>`;
+      }
+      if (type === `circle`) {
+        return `<circle cx="${cx}" cy="${cy}" r="${r - 1}" fill="var(--illus-coral)" stroke="var(--on-surface)" stroke-width="2"/>`;
+      }
+      // star
+      return `<polygon points="${cx},${cy - r} ${cx + 4},${cy - 4} ${cx + r},${cy - 3} ${cx + 5},${cy + 3} ${cx + 7},${cy + r} ${cx},${cy + 6} ${cx - 7},${cy + r} ${cx - 5},${cy + 3} ${cx - r},${cy - 3} ${cx - 4},${cy - 4}" fill="var(--illus-emerald)" stroke="var(--on-surface)" stroke-width="1.8"/>`;
+    }
+
+    function buildShapeStripSvg(shapes) {
+      let s = ``;
+      for (let i = 0; i < shapes.length; i++) {
+        s += drawShapeIcon(shapes[i], 20 + i * 36, 18, 12);
+      }
+      return `<svg viewBox="0 0 150 36" width="150" height="36" aria-hidden="true">${s}</svg>`;
+    }
+
+    // Q5: Mengecat - Magic Paint Roller
+    function buildQ5Visual() {
+      const exIn = [`triangle`, `circle`, `square`, `star`];
+      const exOut = [`square`, `star`, `circle`, `triangle`];
+      const qIn = [`triangle`, `triangle`, `star`, `square`];
+
+      let exInSvg = ``, exOutSvg = ``, qInSvg = ``;
+      for (let i = 0; i < 4; i++) {
+        exInSvg += drawShapeIcon(exIn[i], 36 + i * 38, 134, 13);
+        exOutSvg += drawShapeIcon(exOut[i], 314 + i * 38, 134, 13);
+        qInSvg += drawShapeIcon(qIn[i], 36 + i * 38, 214, 13);
+      }
+
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 510 250" width="510" height="250" role="img" aria-label="Aturan kuas gulung ajaib dan soal urutan bentuk">
+            <!-- Rules box -->
+            <rect x="8" y="8" width="494" height="72" rx="14" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+            <text x="255" y="26" text-anchor="middle" font-size="11" font-weight="800" fill="var(--secondary)">ATURAN KUAS AJAIB (Bentuk Kiri Berubah Menjadi Bentuk Kanan)</text>
+
+            ${drawShapeIcon(`triangle`, 44, 54, 12)}
+            <text x="68" y="59" font-size="16" font-weight="900" fill="var(--primary)">→</text>
+            ${drawShapeIcon(`square`, 98, 54, 12)}
+
+            ${drawShapeIcon(`square`, 164, 54, 12)}
+            <text x="188" y="59" font-size="16" font-weight="900" fill="var(--primary)">→</text>
+            ${drawShapeIcon(`circle`, 218, 54, 12)}
+
+            ${drawShapeIcon(`circle`, 284, 54, 12)}
+            <text x="308" y="59" font-size="16" font-weight="900" fill="var(--primary)">→</text>
+            ${drawShapeIcon(`star`, 338, 54, 12)}
+
+            ${drawShapeIcon(`star`, 404, 54, 12)}
+            <text x="428" y="59" font-size="16" font-weight="900" fill="var(--primary)">→</text>
+            ${drawShapeIcon(`triangle`, 458, 54, 12)}
+
+            <!-- Example Row -->
+            <text x="14" y="106" font-size="11" font-weight="800" fill="var(--on-surface-variant)">CONTOH:</text>
+            <rect x="12" y="112" width="166" height="44" rx="12" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="1.5"/>
+            ${exInSvg}
+            <rect x="200" y="118" width="70" height="32" rx="16" fill="var(--primary)"/>
+            <text x="235" y="138" text-anchor="middle" font-size="11" font-weight="800" fill="var(--on-primary)">KUAS →</text>
+            <rect x="290" y="112" width="166" height="44" rx="12" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="1.5"/>
+            ${exOutSvg}
+
+            <!-- Question Row -->
+            <text x="14" y="186" font-size="11" font-weight="800" fill="var(--primary)">PERTANYAAN:</text>
+            <rect x="12" y="192" width="166" height="44" rx="12" fill="var(--surface-container-low)" stroke="var(--primary)" stroke-width="2"/>
+            ${qInSvg}
+            <rect x="200" y="198" width="70" height="32" rx="16" fill="var(--secondary)"/>
+            <text x="235" y="218" text-anchor="middle" font-size="11" font-weight="800" fill="var(--on-secondary)">KUAS →</text>
+            <rect x="290" y="192" width="166" height="44" rx="12" fill="var(--surface-container-high)" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="5 4"/>
+            <text x="373" y="220" text-anchor="middle" font-size="18" font-weight="900" fill="var(--secondary)">?  ?  ?  ?</text>
+          </svg>
+        </div>
+      `;
+    }
+
+    // Q6: Kembali - Bee-Bot Simulator
+    function buildQ6Visual(q) {
+      const revealed = isQuestionRevealed(q.id);
+      // Simulate C path: F, L, F, L twice from (2,2) facing North (dy=-1)
+      // Steps: 0: (2,2)N -> 1:(2,1)N -> 2:(2,1)W -> 3:(1,1)W -> 4:(1,1)S -> 5:(1,2)S -> 6:(1,2)E -> 7:(2,2)E -> 8:(2,2)N
+      const simStates = [
+        { x: 2, y: 2, angle: 0, label: `Awal: Posisi (2,2), Menghadap Atas` },
+        { x: 2, y: 1, angle: 0, label: `GO #1 · Langkah 1 (↑ Maju)` },
+        { x: 2, y: 1, angle: -90, label: `GO #1 · Langkah 2 (↺ Putar Kiri)` },
+        { x: 1, y: 1, angle: -90, label: `GO #1 · Langkah 3 (↑ Maju)` },
+        { x: 1, y: 1, angle: 180, label: `GO #1 · Langkah 4 (↺ Putar Kiri → Arah Berlawanan 180°!)` },
+        { x: 1, y: 2, angle: 180, label: `GO #2 · Langkah 1 (↑ Maju)` },
+        { x: 1, y: 2, angle: 90, label: `GO #2 · Langkah 2 (↺ Putar Kiri)` },
+        { x: 2, y: 2, angle: 90, label: `GO #2 · Langkah 3 (↑ Maju)` },
+        { x: 2, y: 2, angle: 0, label: `GO #2 · Langkah 4 (↺ Putar Kiri → Kembali ke Posisi & Arah Semula!)` }
+      ];
+      const curState = revealed ? simStates[appState.q6SimStep] : simStates[0];
+
+      let gridSvg = ``;
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+          const x = 220 + c * 52;
+          const y = 20 + r * 52;
+          const isHome = (c === 2 && r === 2);
+          gridSvg += `<rect x="${x}" y="${y}" width="48" height="48" rx="10" fill="${isHome ? `var(--illus-amber-soft)` : `var(--surface-container-low)`}" stroke="${isHome ? `var(--illus-amber)` : `var(--outline-variant)`}" stroke-width="2"/>`;
+        }
+      }
+
+      const bx = 220 + curState.x * 52 + 24;
+      const by = 20 + curState.y * 52 + 24;
+
+      const btnHtml = revealed
+        ? `<div class="sandbox-bar">
+             <button type="button" class="btn btn-secondary btn-sm" onclick="stepQ6Bee()">Simulasi Jawaban C (Langkah ${appState.q6SimStep}/8)</button>
+             <span class="sandbox-status">${curState.label}</span>
+           </div>`
+        : `<div class="sandbox-status">Petunjuk: ↑ Maju · ↓ Mundur · ↺ Putar Kiri 90° · ↻ Putar Kanan 90°</div>`;
+
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 460 240" width="460" height="240" role="img" aria-label="Ilustrasi tombol lebah robot dan arena grid 4 kali 4">
+            <!-- Bee-Bot Legend Card -->
+            <rect x="12" y="20" width="186" height="204" rx="16" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+            <text x="105" y="44" text-anchor="middle" font-size="12" font-weight="800" fill="var(--secondary)">TOMBOL LEBAH ROBOT</text>
+            <circle cx="105" cy="116" r="52" fill="var(--illus-amber-soft)" stroke="var(--illus-amber)" stroke-width="3"/>
+            <text x="105" y="84" text-anchor="middle" font-size="18" font-weight="900" fill="var(--on-surface)">↑</text>
+            <text x="105" y="158" text-anchor="middle" font-size="18" font-weight="900" fill="var(--on-surface)">↓</text>
+            <text x="72" y="122" text-anchor="middle" font-size="18" font-weight="900" fill="var(--on-surface)">↺</text>
+            <text x="138" y="122" text-anchor="middle" font-size="18" font-weight="900" fill="var(--on-surface)">↻</text>
+            <circle cx="105" cy="116" r="16" fill="var(--illus-emerald)"/>
+            <text x="105" y="120" text-anchor="middle" font-size="10" font-weight="900" fill="var(--on-primary)">GO</text>
+            <text x="105" y="196" text-anchor="middle" font-size="11" font-weight="600" fill="var(--on-surface-variant)">Ditekan 2× (GO lalu GO)</text>
+
+            <!-- Grid Arena -->
+            ${gridSvg}
+            <!-- Bee Icon -->
+            <g transform="translate(${bx}, ${by}) rotate(${curState.angle})">
+              <ellipse cx="0" cy="2" rx="14" ry="16" fill="var(--illus-amber)" stroke="var(--on-surface)" stroke-width="2"/>
+              <line x1="-12" y1="0" x2="12" y2="0" stroke="var(--on-surface)" stroke-width="3"/>
+              <line x1="-11" y1="7" x2="11" y2="7" stroke="var(--on-surface)" stroke-width="3"/>
+              <polygon points="0,-18 -6,-9 6,-9" fill="var(--primary)"/>
+            </g>
+          </svg>
+        </div>
+        ${btnHtml}
+      `;
+    }
+
+    // Q7: Robot Maze (17x3 grid for BBRRAARR x 4)
+    function buildQ7Svg(stepNum) {
+      // Walls blocking everything except the BBRRAARR x 4 slalom path
+      const wallSet = new Set([
+        `1,0`, `1,1`,
+        `3,1`, `3,2`,
+        `5,0`, `5,1`,
+        `7,1`, `7,2`,
+        `9,0`, `9,1`,
+        `11,1`, `11,2`,
+        `13,0`, `13,1`,
+        `15,1`, `15,2`
+      ]);
+      // Exact 32 steps of BBRRAARR x 4 from (0,0)
+      const path = [[0, 0]];
+      const cycle = [`B`, `B`, `R`, `R`, `A`, `A`, `R`, `R`];
+      let cx = 0, cy = 0;
+      for (let rep = 0; rep < 4; rep++) {
+        for (let k = 0; k < cycle.length; k++) {
+          const mv = cycle[k];
+          if (mv === `B`) cy++;
+          else if (mv === `A`) cy--;
+          else if (mv === `R`) cx++;
+          path.push([cx, cy]);
+        }
+      }
+
+      const cell = 30;
+      let cells = ``;
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 17; c++) {
+          const x = 14 + c * cell;
+          const y = 26 + r * cell;
+          const isWall = wallSet.has(`${c},${r}`);
+          const isExit = c === 16 && r === 0;
+          const fill = isWall ? `var(--illus-wall)` : (isExit ? `var(--illus-emerald-soft)` : `var(--surface-container-low)`);
+          cells += `<rect x="${x}" y="${y}" width="${cell - 2}" height="${cell - 2}" rx="6" fill="${fill}" stroke="var(--outline-variant)" stroke-width="1"/>`;
+          if (isExit) {
+            cells += `<text x="${x + 14}" y="${y + 18}" text-anchor="middle" font-size="10" font-weight="900" fill="var(--positive)">EXIT</text>`;
+          }
+        }
+      }
+
+      // Draw animated trail up to stepNum
+      let trail = ``;
+      if (stepNum > 0) {
+        let pts = ``;
+        const lim = Math.min(stepNum, path.length - 1);
+        for (let i = 0; i <= lim; i++) {
+          const px = 14 + path[i][0] * cell + 14;
+          const py = 26 + path[i][1] * cell + 14;
+          pts += `${px},${py} `;
+        }
+        trail = `<polyline points="${pts.trim()}" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+      }
+
+      const robotPos = path[Math.min(stepNum, path.length - 1)];
+      const rx = 14 + robotPos[0] * cell + 14;
+      const ry = 26 + robotPos[1] * cell + 14;
+
+      return `
+        <svg viewBox="0 0 540 132" width="540" height="132" role="img" aria-label="Lorong labirin 17 kolom dan 3 baris untuk Robot Hijau">
+          <text x="14" y="16" font-size="11" font-weight="800" fill="var(--secondary)">START</text>
+          <text x="522" y="16" text-anchor="end" font-size="11" font-weight="800" fill="var(--positive)">KELUAR</text>
+          ${cells}
+          ${trail}
+          <g transform="translate(${rx}, ${ry})">
+            <rect x="-10" y="-10" width="20" height="20" rx="5" fill="var(--illus-emerald)" stroke="var(--on-surface)" stroke-width="2"/>
+            <circle cx="-4" cy="-2" r="2" fill="var(--on-primary)"/>
+            <circle cx="4" cy="-2" r="2" fill="var(--on-primary)"/>
+            <line x1="-4" y1="5" x2="4" y2="5" stroke="var(--on-primary)" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      `;
+    }
+
+    function buildQ7Visual(q) {
+      const revealed = isQuestionRevealed(q.id);
+      const simBtn = revealed
+        ? `<div class="sandbox-bar">
+             <button type="button" class="btn btn-secondary btn-sm" onclick="playQ7Robot()">Jalankan Robot (BBRRAARR × 4)</button>
+             <span class="sandbox-status" id="q7-step-status">Siap menelusuri 32 langkah</span>
+           </div>`
+        : `<div class="sandbox-status">Arah: R = Kanan · B = Bawah · L = Kiri · A = Atas (diulang 4×)</div>`;
+
+      return `
+        <div class="svg-frame" id="q7-svg-slot">
+          ${buildQ7Svg(appState.q7AnimStep)}
+        </div>
+        ${simBtn}
+      `;
+    }
+
+    // Q8: Lomba Melompat - 15-step Circular Track
+    function buildQ8Visual(q) {
+      const revealed = isQuestionRevealed(q.id);
+      const w = revealed ? appState.q8Whistle : 0;
+      const posRabbit = (w * 3) % 15;
+      const posFrog = (w * 2) % 15;
+      const posKanga = (w * 5) % 15;
+
+      const cx = 175, cy = 145, radius = 104;
+      let nodesSvg = `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="var(--illus-track)" stroke-width="14"/>`;
+
+      for (let i = 0; i < 15; i++) {
+        const angle = (-90 + i * (360 / 15)) * (Math.PI / 180);
+        const nx = cx + radius * Math.cos(angle);
+        const ny = cy + radius * Math.sin(angle);
+        const isZero = i === 0;
+        nodesSvg += `<circle cx="${nx}" cy="${ny}" r="15" fill="${isZero ? `var(--illus-amber-soft)` : `var(--surface-container-low)`}" stroke="${isZero ? `var(--illus-amber)` : `var(--outline-variant)`}" stroke-width="2"/>`;
+        nodesSvg += `<text x="${nx}" y="${ny + 4}" text-anchor="middle" font-size="12" font-weight="800" fill="var(--on-surface)">${i}</text>`;
+
+        // Draw animal chips around inner/outer rings if at this position
+        let offset = 0;
+        if (i === posRabbit) {
+          const ax = cx + (radius - 30) * Math.cos(angle);
+          const ay = cy + (radius - 30) * Math.sin(angle);
+          nodesSvg += `<circle cx="${ax}" cy="${ay}" r="10" fill="var(--primary)"/><text x="${ax}" y="${ay + 3.5}" text-anchor="middle" font-size="9" font-weight="900" fill="var(--on-primary)">KL</text>`;
+          offset++;
+        }
+        if (i === posFrog) {
+          const ax = cx + (radius + (offset ? 28 : -30)) * Math.cos(angle);
+          const ay = cy + (radius + (offset ? 28 : -30)) * Math.sin(angle);
+          nodesSvg += `<circle cx="${ax}" cy="${ay}" r="10" fill="var(--positive)"/><text x="${ax}" y="${ay + 3.5}" text-anchor="middle" font-size="9" font-weight="900" fill="var(--on-primary)">KD</text>`;
+        }
+        if (i === posKanga) {
+          const ax = cx + (radius + 28) * Math.cos(angle);
+          const ay = cy + (radius + 28) * Math.sin(angle);
+          nodesSvg += `<circle cx="${ax}" cy="${ay}" r="10" fill="var(--secondary)"/><text x="${ax}" y="${ay + 3.5}" text-anchor="middle" font-size="9" font-weight="900" fill="var(--on-secondary)">KG</text>`;
+        }
+      }
+
+      const controls = revealed
+        ? `<div class="sandbox-bar">
+             ${[0, 1, 2, 3, 4].map(function (n) {
+               return `<button type="button" class="btn btn-sm ${w === n ? `btn-primary` : `btn-soft`}" onclick="setQ8Whistle(${n})">Peluit ${n}</button>`;
+             }).join(``)}
+             <span class="sandbox-status">Peluit ${w}: Kelinci=${posRabbit}, Kodok=${posFrog}, Kangguru=${posKanga}</span>
+           </div>`
+        : `<div class="sandbox-status">KL = Kelinci (+3/peluit) · KD = Kodok (+2/peluit) · KG = Kangguru (+5/peluit)</div>`;
+
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 350 290" width="350" height="290" role="img" aria-label="Lintasan melingkar bernomor 0 sampai 14 untuk lomba melompat">
+            ${nodesSvg}
+            <text x="${cx}" y="${cy - 4}" text-anchor="middle" font-size="11" font-weight="800" fill="var(--on-surface-variant)">ARAH PUTAR ↻</text>
+            <text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--primary)">15 Posisi (0–14)</text>
+          </svg>
+        </div>
+        ${controls}
+      `;
+    }
+
+    // Q9: Merapikan Mainan - Boneka (AABBCC), Manik-manik (ABCABC), Lidi-lidi (ABCCBA)
+    function buildQ9Visual() {
+      // Dolls in a circle: 2 pink, 2 sky, 2 amber
+      const dollColors = [`var(--illus-pink)`, `var(--illus-pink)`, `var(--illus-sky)`, `var(--illus-sky)`, `var(--illus-amber)`, `var(--illus-amber)`];
+      let dollsSvg = ``;
+      for (let i = 0; i < 6; i++) {
+        const ang = (-90 + i * 60) * (Math.PI / 180);
+        const dx = 92 + 44 * Math.cos(ang);
+        const dy = 112 + 44 * Math.sin(ang);
+        dollsSvg += `<circle cx="${dx}" cy="${dy}" r="14" fill="${dollColors[i]}" stroke="var(--on-surface)" stroke-width="2"/>`;
+        dollsSvg += `<circle cx="${dx - 4}" cy="${dy - 2}" r="2" fill="var(--on-surface)"/><circle cx="${dx + 4}" cy="${dy - 2}" r="2" fill="var(--on-surface)"/>`;
+      }
+
+      // Beads on a string: Pink Circle, Sky Triangle, Amber Square x2 (ABCABC)
+      const beadShapes = [`circle`, `triangle`, `square`, `circle`, `triangle`, `square`];
+      let beadsSvg = `<line x1="205" y1="112" x2="355" y2="112" stroke="var(--on-surface)" stroke-width="2.5"/>`;
+      for (let i = 0; i < 6; i++) {
+        beadsSvg += drawShapeIcon(beadShapes[i], 218 + i * 25, 112, 10);
+      }
+
+      // Sticks: \ | / / | \ (ABCCBA)
+      const tilts = [-14, 0, 14, 14, 0, -14];
+      let sticksSvg = ``;
+      for (let i = 0; i < 6; i++) {
+        const sx = 398 + i * 24;
+        const dx = tilts[i];
+        sticksSvg += `<line x1="${sx - dx / 2}" y1="138" x2="${sx + dx / 2}" y2="86" stroke="var(--illus-wood-dark)" stroke-width="5" stroke-linecap="round"/>`;
+      }
+
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 540 232" width="540" height="232" role="img" aria-label="Tiga rangkaian mainan: boneka melingkar, untaian manik-manik, dan deretan lidi miring">
+            <!-- Group 1: Boneka -->
+            <rect x="10" y="14" width="164" height="156" rx="16" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+            <text x="92" y="38" text-anchor="middle" font-size="13" font-weight="800" fill="var(--on-surface)">1. Boneka</text>
+            ${dollsSvg}
+
+            <!-- Group 2: Manik-manik -->
+            <rect x="188" y="14" width="174" height="156" rx="16" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+            <text x="275" y="38" text-anchor="middle" font-size="13" font-weight="800" fill="var(--on-surface)">2. Manik-Manik</text>
+            ${beadsSvg}
+
+            <!-- Group 3: Lidi-lidi -->
+            <rect x="376" y="14" width="154" height="156" rx="16" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="2"/>
+            <text x="453" y="38" text-anchor="middle" font-size="13" font-weight="800" fill="var(--on-surface)">3. Lidi-Lidi</text>
+            ${sticksSvg}
+
+            <!-- Labels -->
+            <rect x="34" y="184" width="128" height="34" rx="17" fill="var(--primary-container)"/>
+            <text x="98" y="206" text-anchor="middle" font-size="13" font-weight="900" fill="var(--on-primary-container)">AABBCC</text>
+
+            <rect x="206" y="184" width="128" height="34" rx="17" fill="var(--secondary-container)"/>
+            <text x="270" y="206" text-anchor="middle" font-size="13" font-weight="900" fill="var(--secondary)">ABCABC</text>
+
+            <rect x="378" y="184" width="128" height="34" rx="17" fill="var(--tertiary-container)"/>
+            <text x="442" y="206" text-anchor="middle" font-size="13" font-weight="900" fill="var(--on-surface)">ABCCBA</text>
+          </svg>
+        </div>
+      `;
+    }
+
+    // Q10: Botol - 5 Bottles with Clearly Distinct Waist/Neck Widths
+    function buildQ10Visual(q) {
+      const revealed = isQuestionRevealed(q.id);
+      const unsorted = [
+        { name: `Biru`, color: `var(--illus-sky)`, waist: 12 },
+        { name: `Merah`, color: `var(--illus-coral)`, waist: 21 },
+        { name: `Pink`, color: `var(--illus-pink)`, waist: 27 },
+        { name: `Hijau`, color: `var(--illus-emerald)`, waist: 7 },
+        { name: `Kuning`, color: `var(--illus-amber)`, waist: 16 }
+      ];
+      const sorted = [unsorted[3], unsorted[0], unsorted[4], unsorted[1], unsorted[2]];
+      const list = revealed ? sorted : unsorted;
+
+      let bottlesSvg = ``;
+      for (let i = 0; i < list.length; i++) {
+        const b = list[i];
+        const cx = 62 + i * 96;
+        const w = b.waist;
+        // Bottle silhouette where middle/neck clearly scales with waist w
+        bottlesSvg += `
+          <g transform="translate(${cx}, 24)">
+            <rect x="-10" y="0" width="20" height="10" rx="3" fill="var(--on-surface)"/>
+            <path d="M-${w} 14 L${w} 14 L${w + 10} 48 L${w + 10} 118 Q${w + 10} 128 0 128 Q-${w + 10} 128 -${w + 10} 118 L-${w + 10} 48 Z"
+                  fill="${b.color}" stroke="var(--on-surface)" stroke-width="2.5"/>
+            <line x1="-${w + 4}" y1="62" x2="${w + 4}" y2="62" stroke="var(--on-surface)" stroke-width="2" stroke-dasharray="3 2"/>
+            <text x="0" y="152" text-anchor="middle" font-size="13" font-weight="800" fill="var(--on-surface)">${b.name}</text>
+          </g>
+        `;
+      }
+
+      return `
+        <div class="svg-frame">
+          <svg viewBox="0 0 510 210" width="510" height="210" role="img" aria-label="Lima botol berwarna dengan lebar bagian tengah berbeda">
+            <text x="255" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="${revealed ? `var(--positive)` : `var(--secondary)`}">
+              ${revealed ? `TERURUT DARI TERKECIL KE TERBESAR: HIJAU → BIRU → KUNING → MERAH → PINK` : `BANDINGKAN LEBAR BAGIAN TENGAH / LEHER SETIAP BOTOL`}
+            </text>
+            ${bottlesSvg}
+            <rect x="20" y="186" width="470" height="14" rx="7" fill="var(--illus-wood)"/>
+          </svg>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // RENDERERS
+    // =========================================================================
+    function renderHudAndNav() {
+      const stats = computeStats();
+      const progText = document.getElementById(`hud-progress-text`);
+      const progBar = document.getElementById(`hud-progress-bar`);
+      const progCap = document.getElementById(`hud-progress-cap`);
+      const scoreText = document.getElementById(`hud-score-text`);
+      const scoreCap = document.getElementById(`hud-score-cap`);
+      const accText = document.getElementById(`hud-accuracy-text`);
+
+      if (progText) progText.textContent = `${stats.answeredCount} / 10`;
+      if (progBar) progBar.style.width = `${stats.answeredCount * 10}%`;
+      if (progCap) {
+        progCap.textContent = stats.answeredCount === 10
+          ? `Semua 10 soal sudah dijawab!`
+          : `Tersisa ${10 - stats.answeredCount} soal lagi`;
+      }
+
+      if (scoreText) {
+        scoreText.textContent = stats.revealScore ? `${stats.score} / 100` : `Mode Ujian`;
+      }
+      if (scoreCap) {
+        scoreCap.textContent = stats.revealScore
+          ? `${stats.correctCount} jawaban benar (×10 poin)`
+          : `Skor akan muncul setelah klik Selesai & Hitung Skor`;
+      }
+      if (accText) {
+        if (!stats.revealScore || stats.answeredCount === 0) {
+          accText.textContent = `—`;
+        } else {
+          const pct = Math.round((stats.correctCount / stats.answeredCount) * 100);
+          accText.textContent = `${pct}%`;
+        }
+      }
+
+      // Mode buttons
+      const btnP = document.getElementById(`btn-mode-practice`);
+      const btnE = document.getElementById(`btn-mode-exam`);
+      if (btnP) btnP.setAttribute(`aria-pressed`, appState.mode === `practice` ? `true` : `false`);
+      if (btnE) btnE.setAttribute(`aria-pressed`, appState.mode === `exam` ? `true` : `false`);
+
+      const submitWrap = document.getElementById(`exam-submit-wrap`);
+      if (submitWrap) {
+        if (appState.mode === `exam` && !appState.examSubmitted) {
+          submitWrap.classList.remove(`hidden`);
+        } else {
+          submitWrap.classList.add(`hidden`);
+        }
+      }
+
+      const toggleSumBtn = document.getElementById(`btn-toggle-summary`);
+      if (toggleSumBtn) {
+        toggleSumBtn.textContent = appState.showSummary ? `Kembali ke Soal` : `Lihat Rapor Skor`;
+      }
+
+      // Question pills
+      const pillsEl = document.getElementById(`question-pills`);
+      if (pillsEl) {
+        let html = ``;
+        for (let i = 0; i < QUESTIONS.length; i++) {
+          const q = QUESTIONS[i];
+          const chosen = appState.answers[String(q.id)];
+          const revealed = isQuestionRevealed(q.id);
+          let cls = `q-pill`;
+          if (i === appState.currentIdx && !appState.showSummary) cls += ` is-active`;
+          else if (revealed && chosen) cls += chosen === q.correct ? ` is-correct` : ` is-wrong`;
+          else if (chosen) cls += ` is-answered`;
+
+          html += `<button type="button" class="${cls}" onclick="goToQuestion(${i})" aria-label="Soal ${q.id}: ${q.title}">${q.id}</button>`;
+        }
+        pillsEl.innerHTML = html;
+      }
+    }
+
+    function renderQuestionWorkspace() {
+      const workspace = document.getElementById(`quiz-workspace`);
+      const container = document.getElementById(`question-container`);
+      if (!workspace || !container) return;
+
+      if (appState.showSummary) {
+        workspace.classList.add(`hidden`);
+        return;
+      }
+      workspace.classList.remove(`hidden`);
+
+      const q = QUESTIONS[appState.currentIdx];
+      const chosen = appState.answers[String(q.id)] || null;
+      const revealed = isQuestionRevealed(q.id);
+      const isCorrect = chosen === q.correct;
+
+      // Options HTML
+      let optionsHtml = ``;
+      for (let i = 0; i < q.options.length; i++) {
+        const opt = q.options[i];
+        let cls = `option-btn`;
+        if (revealed) {
+          if (opt.key === q.correct) cls += ` is-correct-choice`;
+          else if (opt.key === chosen) cls += ` is-wrong-choice`;
+        } else if (opt.key === chosen) {
+          cls += ` is-selected`;
+        }
+        const disabledAttr = (appState.mode === `practice` && Boolean(chosen)) || (appState.mode === `exam` && appState.examSubmitted) ? `disabled` : ``;
+        const extraVisual = opt.shapes ? buildShapeStripSvg(opt.shapes) : ``;
+
+        optionsHtml += `
+          <button type="button" class="${cls}" onclick="selectOption(${q.id}, '${opt.key}')" ${disabledAttr}>
+            <span class="option-letter">${opt.key}</span>
+            <span class="option-content">
+              <span>${opt.text}</span>
+              ${extraVisual}
+            </span>
+          </button>
+        `;
+      }
+
+      // Feedback & Pembahasan HTML
+      let feedbackHtml = ``;
+      if (revealed) {
+        const boxCls = chosen ? (isCorrect ? `correct` : `wrong`) : `wrong`;
+        const headCls = chosen ? (isCorrect ? `correct-text` : `wrong-text`) : `wrong-text`;
+        const headText = !chosen
+          ? `Belum Dijawab — Kunci: ${q.correct}`
+          : (isCorrect ? `Benar! (+10 Poin)` : `Kurang Tepat — Jawaban Benar: ${q.correct}`);
+        const kwHtml = q.keywords.map(function (kw) {
+          return `<span class="kw-pill">${kw}</span>`;
+        }).join(``);
+
+        feedbackHtml = `
+          <div class="feedback-box ${boxCls}">
+            <div class="feedback-head ${headCls}">
+              <span>${headText}</span>
+            </div>
+            <div>${q.explanation}</div>
+          </div>
+          <div class="cs-box">
+            <h3 class="cs-title">Ini Informatika!</h3>
+            <div>${q.informatics}</div>
+            <div class="keyword-row">${kwHtml}</div>
+          </div>
+        `;
+      }
+
+      const prevDisabled = appState.currentIdx === 0 ? `disabled` : ``;
+      const nextBtn = appState.currentIdx < QUESTIONS.length - 1
+        ? `<button type="button" class="btn btn-primary" onclick="goToQuestion(${appState.currentIdx + 1})">Soal Berikutnya →</button>`
+        : `<button type="button" class="btn btn-primary" onclick="${appState.mode === `exam` && !appState.examSubmitted ? `submitExam()` : `toggleSummaryView()`}">Lihat Rapor Akhir →</button>`;
+
+      container.innerHTML = `
+        <article class="card">
+          <div class="q-header">
+            <div class="kicker-row">
+              <span class="badge">Soal ${q.id} dari 10</span>
+              <span class="tag">${q.topic}</span>
+            </div>
+            <span class="control-label">Kode ${q.code}</span>
+          </div>
+          <h2 class="q-title">${q.id}. ${q.title}</h2>
+          <div class="q-desc">${q.descHtml}</div>
+          <div class="visual-well">
+            ${buildVisualForQuestion(q)}
+          </div>
+        </article>
+
+        <aside class="card grape-shadow">
+          <div class="prompt-box">
+            <span class="prompt-label">Pertanyaan</span>
+            <p class="prompt-text">${q.prompt}</p>
+          </div>
+          <div class="options-list" role="group" aria-label="Pilihan jawaban soal ${q.id}">
+            ${optionsHtml}
+          </div>
+          ${feedbackHtml}
+          <div class="nav-actions">
+            <button type="button" class="btn btn-soft" onclick="goToQuestion(${appState.currentIdx - 1})" ${prevDisabled}>← Sebelumnya</button>
+            ${nextBtn}
+          </div>
+        </aside>
+      `;
+    }
+
+    function renderSummaryPanel() {
+      const panel = document.getElementById(`summary-panel`);
+      if (!panel) return;
+      if (!appState.showSummary) {
+        panel.classList.add(`hidden`);
+        return;
+      }
+      panel.classList.remove(`hidden`);
+
+      const stats = computeStats();
+      const canShowAnswers = appState.mode === `practice` || appState.examSubmitted;
+
+      let rankTitle = `Berang-Berang Penjelajah`;
+      let rankMsg = `Terus berlatih membaca diagram dan mencoba lagi setiap soal untuk mengasah logikamu!`;
+      if (stats.score >= 80) {
+        rankTitle = `Berang-Berang Juara!`;
+        rankMsg = `Luar biasa! Kamu menguasai pola, algoritma, dan logika komputasional dengan sangat baik.`;
+      } else if (stats.score >= 50) {
+        rankTitle = `Berang-Berang Cerdik!`;
+        rankMsg = `Bagus sekali! Pelajari pembahasan pada soal yang terlewat untuk meraih nilai sempurna.`;
+      }
+
+      // Topic breakdown groups
+      const groups = [
+        { name: `Penjadwalan & Pengurutan`, ids: [1, 10] },
+        { name: `Struktur Data & Grid`, ids: [2, 3] },
+        { name: `Pola & Kriptografi`, ids: [4, 9] },
+        { name: `Algoritma, Robot & Modulo`, ids: [5, 6, 7, 8] }
+      ];
+
+      let groupsHtml = ``;
+      for (let g = 0; g < groups.length; g++) {
+        const grp = groups[g];
+        let ok = 0;
+        for (let k = 0; k < grp.ids.length; k++) {
+          const qObj = QUESTIONS[grp.ids[k] - 1];
+          if (canShowAnswers && appState.answers[String(qObj.id)] === qObj.correct) ok++;
+        }
+        const pct = canShowAnswers ? Math.round((ok / grp.ids.length) * 100) : 0;
+        groupsHtml += `
+          <div class="topic-bar-row">
+            <div class="topic-bar-head">
+              <span>${grp.name}</span>
+              <span>${canShowAnswers ? `${ok}/${grp.ids.length} benar` : `Belum dinilai`}</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: ${pct}%;"></div>
+            </div>
+          </div>
+        `;
+      }
+
+      let reviewHtml = ``;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const ans = appState.answers[String(q.id)];
+        let chip = `<span class="status-chip wait">Belum</span>`;
+        if (canShowAnswers && ans) {
+          chip = ans === q.correct
+            ? `<span class="status-chip ok">Benar (${ans})</span>`
+            : `<span class="status-chip err">${ans} → Kunci ${q.correct}</span>`;
+        } else if (ans) {
+          chip = `<span class="status-chip wait">Terisi (${ans})</span>`;
+        }
+        reviewHtml += `
+          <button type="button" class="review-item" onclick="goToQuestion(${i})">
+            <span><strong>${q.id}. ${q.title}</strong></span>
+            ${chip}
+          </button>
+        `;
+      }
+
+      const examNotice = appState.mode === `exam` && !appState.examSubmitted
+        ? `<div class="feedback-box wrong">
+             <div class="feedback-head wrong-text"><span>Mode Ujian Belum Dikumpulkan</span></div>
+             <div>Kamu masih berada di Mode Ujian. Klik tombol <strong>Selesai &amp; Hitung Skor</strong> untuk melihat nilai dan membuka semua pembahasan.</div>
+             <div><button type="button" class="btn btn-primary btn-sm" onclick="submitExam()">Selesai &amp; Hitung Skor</button></div>
+           </div>`
+        : ``;
+      const saveStatusText = submissionSaveStatus === `saving`
+        ? `Menyimpan hasil ujian...`
+        : (submissionSaveStatus === `saved`
+           ? `Hasil ujian tersimpan.`
+           : (submissionSaveStatus === `failed` ? `Hasil ujian belum tersimpan di server.` : ``));
+
+      panel.innerHTML = `
+        <div class="summary-top">
+          <div class="score-hero">
+            <div class="score-circle">
+              <div>
+                <strong>${canShowAnswers ? stats.score : `?`}</strong><br>
+                <span>Skor / 100</span>
+              </div>
+            </div>
+            <div>
+              <span class="badge">Rapor Akhir Bebras Siaga</span>
+              <h2 class="q-title" style="margin-top: var(--space-xs);">${canShowAnswers ? rankTitle : `Ujian Masih Berlangsung`}</h2>
+              <p class="hero-sub">${canShowAnswers ? rankMsg : `Jawab semua 10 soal lalu kumpulkan ujian untuk menghitung skor otomatismu.`}</p>
+            </div>
+          </div>
+          <div class="sandbox-bar">
+            <button type="button" class="btn btn-secondary" onclick="exportScoreReport()">Unduh Rapor (.txt)</button>
+            <button type="button" class="btn btn-soft" onclick="toggleSummaryView()">Kembali ke Soal</button>
+            <span id="submission-save-status" class="control-label" role="status" aria-live="polite">${saveStatusText}</span>
+            <button type="button" class="btn btn-quiet btn-sm ${submissionSaveStatus === `failed` ? `` : `hidden`}" id="retry-submit-save" onclick="submitExam()">Coba simpan lagi</button>
+          </div>
+        </div>
+        ${examNotice}
+        <div>
+          <span class="control-label">Kemampuan per Topik Informatika</span>
+          <div class="summary-grid" style="margin-top: var(--space-sm);">
+            ${groupsHtml}
+          </div>
+        </div>
+        <div>
+          <span class="control-label">Klik Nomor Soal untuk Membuka Pembahasan</span>
+          <div class="review-list" style="margin-top: var(--space-sm);">
+            ${reviewHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAll() {
+      renderHudAndNav();
+      renderQuestionWorkspace();
+      renderSummaryPanel();
+    }
+
+    // =========================================================================
+    // INITIALIZATION & SHIM LIFECYCLE
+    // =========================================================================
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (saved.mode === `practice` || saved.mode === `exam`) appState.mode = saved.mode;
+            if (typeof saved.currentIdx === `number` && saved.currentIdx >= 0 && saved.currentIdx < QUESTIONS.length) {
+              appState.currentIdx = saved.currentIdx;
+            }
+            if (saved.answers && typeof saved.answers === `object`) appState.answers = saved.answers;
+            if (typeof saved.examSubmitted === `boolean`) appState.examSubmitted = saved.examSubmitted;
+            if (typeof saved.showSummary === `boolean`) appState.showSummary = saved.showSummary;
+          }
+        }
+      } catch (err) {
+        // Proceed with clean default state if getAppState is unavailable
+      }
+
+      renderAll();
+
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+          window.notebookAppApi.notifyAppReady();
+        }
+      } catch (err) {
+        // Ignore in standalone viewer
+      }
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
